@@ -42,7 +42,7 @@ function Pups() {
       <PageHero
         eyebrow="Pups"
         title="Pups & wachtlijst"
-        script="jouw gouden maatje"
+        script="jouw gouden mandje"
         intro="Momenteel zijn er geen pups beschikbaar. Schrijf je in voor de wachtlijst en wees als eerste op de hoogte van een nieuw nestje."
       />
 
