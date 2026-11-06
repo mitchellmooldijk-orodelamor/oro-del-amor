@@ -10,33 +10,73 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as OnzeHondenRouteImport } from './routes/onze-honden'
+import { Route as OverOnsRouteImport } from './routes/over-ons'
+import { Route as PupsRouteImport } from './routes/pups'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OnzeHondenRoute = OnzeHondenRouteImport.update({
+  id: '/onze-honden',
+  path: '/onze-honden',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OverOnsRoute = OverOnsRouteImport.update({
+  id: '/over-ons',
+  path: '/over-ons',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PupsRoute = PupsRouteImport.update({
+  id: '/pups',
+  path: '/pups',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/onze-honden': typeof OnzeHondenRoute
+  '/over-ons': typeof OverOnsRoute
+  '/pups': typeof PupsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/onze-honden': typeof OnzeHondenRoute
+  '/over-ons': typeof OverOnsRoute
+  '/pups': typeof PupsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/onze-honden': typeof OnzeHondenRoute
+  '/over-ons': typeof OverOnsRoute
+  '/pups': typeof PupsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/contact' | '/onze-honden' | '/over-ons' | '/pups'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/contact' | '/onze-honden' | '/over-ons' | '/pups'
+  id: '__root__' | '/' | '/contact' | '/onze-honden' | '/over-ons' | '/pups'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  OnzeHondenRoute: typeof OnzeHondenRoute
+  OverOnsRoute: typeof OverOnsRoute
+  PupsRoute: typeof PupsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +88,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/onze-honden': {
+      id: '/onze-honden'
+      path: '/onze-honden'
+      fullPath: '/onze-honden'
+      preLoaderRoute: typeof OnzeHondenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/over-ons': {
+      id: '/over-ons'
+      path: '/over-ons'
+      fullPath: '/over-ons'
+      preLoaderRoute: typeof OverOnsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pups': {
+      id: '/pups'
+      path: '/pups'
+      fullPath: '/pups'
+      preLoaderRoute: typeof PupsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  OnzeHondenRoute: OnzeHondenRoute,
+  OverOnsRoute: OverOnsRoute,
+  PupsRoute: PupsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
