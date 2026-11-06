@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Site chrome (header/footer) lives in `src/routes/__root.tsx` around `<Outlet />`; shared site components live in `src/components/site/`. Why: one shell for every page.
+- Dog profiles and contact constants live in `src/data/dogs.ts`; pages read from it. Why: one place to update dog facts and contact info.
+- Customer-supplied photos are CDN asset pointers (`src/assets/*.asset.json`); generated images are plain imports. Why: keeps large uploads out of the repo.
