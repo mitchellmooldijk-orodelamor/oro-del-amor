@@ -4,8 +4,8 @@ import { PageHero } from "@/components/site/PageHero";
 import { Crown, Ornament } from "@/components/site/Ornament";
 import { Button } from "@/components/ui/button";
 import vinoImg from "@/assets/vino-pomeranian-zon.jpg.asset.json";
-import nachoImg from "@/assets/nacho-dekreu.png.asset.json";
-import lunaImg from "@/assets/luna-moeder.png.asset.json";
+import nachoImg from "@/assets/nacho-bloemen.jpg.asset.json";
+import lunaImg from "@/assets/luna-nacho-kussen.jpg.asset.json";
 
 export const Route = createFileRoute("/over-ons")({
   head: () => ({
@@ -120,9 +120,11 @@ function OverOns() {
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 pt-24 md:grid-cols-2 md:gap-20">
         <img
           src={nachoImg.url}
-          alt="Nacho, onze Pomeranian dekreu"
+          alt="Nacho, onze black-tan Pomeranian, met een kanten kraagje bij een bos bloemen"
           loading="lazy"
-          className="aspect-[4/5] w-full object-cover shadow-gold"
+          width={1440}
+          height={1920}
+          className="aspect-[4/5] w-full object-cover object-[50%_75%] shadow-gold"
         />
         <div>
           <Chapter eyebrow="Nacho" title="Een nieuw hoofdstuk">
@@ -142,9 +144,11 @@ function OverOns() {
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-24 md:grid-cols-2 md:gap-20">
         <img
           src={lunaImg.url}
-          alt="Luna, onze Pomeranian teef"
+          alt="Luna en Nacho samen op een zacht kussen"
           loading="lazy"
-          className="aspect-[4/5] w-full object-cover shadow-gold md:order-2"
+          width={1440}
+          height={1920}
+          className="aspect-[4/5] w-full object-cover object-[50%_65%] shadow-gold md:order-2"
         />
         <div>
           <Chapter eyebrow="Luna" title="Een waardevolle toevoeging">
