@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { PageHero } from "@/components/site/PageHero";
 import { Crown, Ornament } from "@/components/site/Ornament";
 import { Button } from "@/components/ui/button";
-import vinoImg from "@/assets/vino-pomeranian.jpg.asset.json";
+import vinoImg from "@/assets/vino-pomeranian-zon.jpg.asset.json";
 import nachoImg from "@/assets/nacho-dekreu.png.asset.json";
 import lunaImg from "@/assets/luna-moeder.png.asset.json";
 
