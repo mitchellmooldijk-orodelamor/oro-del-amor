@@ -9,7 +9,7 @@ export function SiteFooter() {
       <div className="sparkle pointer-events-none absolute inset-0 opacity-60" />
       <div className="relative mx-auto max-w-6xl px-5 py-16 text-center">
         <Crown className="mx-auto h-6" />
-        <p className="mt-3 font-script text-5xl text-gold">Corazón de Oro</p>
+        <p className="mt-3 font-script text-5xl text-gold">Poms de Oro</p>
         <p className="mt-2 font-display text-[0.65rem] tracking-[0.5em] text-muted-foreground uppercase">
           Pomeranians
         </p>
@@ -53,7 +53,7 @@ export function SiteFooter() {
         </nav>
 
         <p className="mt-10 text-xs text-muted-foreground/70">
-          © {new Date().getFullYear()} Corazón de Oro Pomeranians
+          © {new Date().getFullYear()} Poms de Oro Pomeranians
         </p>
       </div>
     </footer>

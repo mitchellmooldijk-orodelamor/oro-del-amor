@@ -8,12 +8,12 @@ import puppies from "@/assets/puppies.jpg";
 export const Route = createFileRoute("/pups")({
   head: () => ({
     meta: [
-      { title: "Pups & wachtlijst | Corazón de Oro Pomeranians" },
+      { title: "Pups & wachtlijst | Poms de Oro Pomeranians" },
       {
         name: "description",
-        content: "Interesse in een Pomeranian pup van Corazón de Oro? Lees hoe onze werkwijze is en schrijf je in voor de wachtlijst.",
+        content: "Interesse in een Pomeranian pup van Poms de Oro? Lees hoe onze werkwijze is en schrijf je in voor de wachtlijst.",
       },
-      { property: "og:title", content: "Pups & wachtlijst — Corazón de Oro" },
+      { property: "og:title", content: "Pups & wachtlijst — Poms de Oro" },
       { property: "og:description", content: "Onze werkwijze en de wachtlijst voor toekomstige nestjes." },
     ],
   }),

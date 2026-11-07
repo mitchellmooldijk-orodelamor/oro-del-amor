@@ -8,12 +8,12 @@ import { CONTACT_EMAIL, INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/data/dogs";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact | Corazón de Oro Pomeranians" },
+      { title: "Contact | Poms de Oro Pomeranians" },
       {
         name: "description",
-        content: "Neem contact op met kennel Corazón de Oro voor vragen over onze Pomeranians of de wachtlijst.",
+        content: "Neem contact op met kennel Poms de Oro voor vragen over onze Pomeranians of de wachtlijst.",
       },
-      { property: "og:title", content: "Contact — Corazón de Oro" },
+      { property: "og:title", content: "Contact — Poms de Oro" },
       { property: "og:description", content: "Vragen over onze Pomeranians of de wachtlijst? Neem contact op." },
     ],
   }),

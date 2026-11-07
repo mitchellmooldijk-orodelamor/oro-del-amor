@@ -80,9 +80,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Corazón de Oro Pomeranians" },
-      { name: "description", content: "Kennel Corazón de Oro — Pomeranians gefokt met liefde, passie en oog voor kwaliteit." },
-      { name: "author", content: "Corazón de Oro" },
+      { title: "Poms de Oro Pomeranians" },
+      { name: "description", content: "Kennel Poms de Oro — Pomeranians gefokt met liefde, passie en oog voor kwaliteit." },
+      { name: "author", content: "Poms de Oro" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

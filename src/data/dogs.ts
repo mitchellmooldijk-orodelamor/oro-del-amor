@@ -47,10 +47,10 @@ export const dogs: Dog[] = [
       { label: "DNA-testen", value: "—" },
     ],
     description:
-      "Luna is ons zonnetje in huis: een zachte, crèmekleurige teef met een vrolijke blik en een groot hart. Als liefdevolle moeder vormt zij het hart van Corazón de Oro.",
+      "Luna is ons zonnetje in huis: een zachte, crèmekleurige teef met een vrolijke blik en een groot hart. Als liefdevolle moeder vormt zij het hart van Poms de Oro.",
   },
 ];
 
 export const INSTAGRAM_HANDLE = "nacho.thepom_";
 export const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
-export const CONTACT_EMAIL = "info@corazondeoro.nl";
+export const CONTACT_EMAIL = "info@pomsdeoro.nl";
