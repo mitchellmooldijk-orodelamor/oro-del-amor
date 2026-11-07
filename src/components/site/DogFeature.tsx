@@ -9,17 +9,25 @@ export function DogFeature({ dog, reverse = false }: { dog: Dog; reverse?: boole
         reverse && "md:[&>*:first-child]:order-2",
       )}
     >
-      <div className="relative">
-        <div className="absolute -inset-3 border border-primary/30" aria-hidden="true" />
-        <img
-          src={dog.image}
-          alt={`${dog.name}, ${dog.color} Pomeranian`}
-          loading="lazy"
-          width={1200}
-          height={1300}
-          className="relative w-full shadow-gold"
-        />
-      </div>
+      <figure>
+        <div className="relative">
+          <div className="absolute -inset-3 border border-primary/30" aria-hidden="true" />
+          <img
+            src={dog.image}
+            alt={`${dog.name}, ${dog.color} Pomeranian`}
+            loading="lazy"
+            width={1200}
+            height={1300}
+            className="relative w-full shadow-gold"
+          />
+        </div>
+        <figcaption className="mt-7 text-center">
+          <span className="block font-display text-[0.6rem] tracking-[0.3em] text-muted-foreground uppercase">
+            Kennel van herkomst
+          </span>
+          <span className="mt-1 block font-script text-3xl text-gold">{dog.origin}</span>
+        </figcaption>
+      </figure>
 
       <div>
         <p className="eyebrow">{dog.role}</p>

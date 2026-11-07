@@ -4,3 +4,8 @@
 - [x] Logo, Nacho- en Luna-foto's van de klant verwerken
 - [x] Favicon uit logo
 - [x] Naamswijziging naar Poms de Oro + nieuw logo en favicon
+- [x] Home: "Een gouden hart" → "Poms van Goud"; Excellence-tekst fokreglement
+- [x] Luna: kennel Poms Jewels of my heart, geb. 18-10-2025, patella + SM/CM, DNA weg
+- [x] Nacho: DNA weg, patella + SM/CM
+- [x] Nieuws-carrousel (swipebaar) op de homepagina
+- [x] Nieuwe pagina "Wie zijn wij?" met gezinsfoto's

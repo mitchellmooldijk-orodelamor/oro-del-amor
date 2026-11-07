@@ -6,6 +6,7 @@ import logo from "@/assets/poms-de-oro-logo.jpg.asset.json";
 import aboutHome from "@/assets/about-home.jpg";
 import puppies from "@/assets/puppies.jpg";
 import { dogs } from "@/data/dogs";
+import { NewsCarousel } from "@/components/site/NewsCarousel";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -35,7 +36,7 @@ const pillars = [
   {
     icon: ShieldCheck,
     title: "Excellence",
-    text: "Ouderdieren met FCI-stamboom, geselecteerd op gezondheid, bouw en karakter.",
+    text: "Ouderdieren met FCI-stamboom, getest op alle eisen die gelden binnen het fokreglement.",
   },
   {
     icon: Sparkles,
@@ -58,7 +59,7 @@ function Index() {
               Poms de Oro
             </h1>
             <p className="mt-4 font-display text-sm tracking-[0.4em] text-foreground/80 uppercase">
-              Een gouden hart
+              Poms van Goud
             </p>
             <p className="mx-auto mt-6 max-w-md font-serif text-xl leading-relaxed text-muted-foreground md:mx-0">
               Kleine Pomeranians met een groot hart — met zorg gefokt, liefdevol opgevoed en klaar om
@@ -98,6 +99,14 @@ function Index() {
               <p className="mt-3 font-serif text-lg leading-relaxed text-muted-foreground">{p.text}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Nieuws */}
+      <section className="border-t border-border py-24">
+        <div className="mx-auto max-w-6xl px-5">
+          <SectionHeading eyebrow="Nieuws" title="Laatste updates" script="uit de kennel" />
+          <NewsCarousel />
         </div>
       </section>
 
