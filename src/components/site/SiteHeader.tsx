@@ -4,6 +4,7 @@ import { useState } from "react";
 
 const nav = [
   { to: "/", label: "Home" },
+  { to: "/wie-zijn-wij", label: "Wie zijn wij" },
   { to: "/onze-honden", label: "Onze honden" },
   { to: "/pups", label: "Pups" },
   { to: "/over-ons", label: "Over ons" },
@@ -23,7 +24,7 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 lg:flex xl:gap-8">
           {nav.map((item) => (
             <Link
               key={item.to}
@@ -38,7 +39,7 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="text-primary md:hidden"
+          className="text-primary lg:hidden"
           aria-label={open ? "Menu sluiten" : "Menu openen"}
           onClick={() => setOpen((v) => !v)}
         >
@@ -47,7 +48,7 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <nav className="animate-rise border-t border-border bg-background md:hidden">
+        <nav className="animate-rise border-t border-border bg-background lg:hidden">
           <ul className="flex flex-col px-5 py-4">
             {nav.map((item) => (
               <li key={item.to}>

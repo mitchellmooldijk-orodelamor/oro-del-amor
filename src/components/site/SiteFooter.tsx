@@ -37,6 +37,7 @@ export function SiteFooter() {
 
         <nav className="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2">
           {[
+            { to: "/wie-zijn-wij", label: "Wie zijn wij" },
             { to: "/onze-honden", label: "Onze honden" },
             { to: "/pups", label: "Pups" },
             { to: "/over-ons", label: "Over ons" },
