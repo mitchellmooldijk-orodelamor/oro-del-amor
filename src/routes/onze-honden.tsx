@@ -7,13 +7,13 @@ import { dogs } from "@/data/dogs";
 export const Route = createFileRoute("/onze-honden")({
   head: () => ({
     meta: [
-      { title: "Onze honden — Nacho & Luna | Corazón de Oro" },
+      { title: "Onze honden — Nacho & Luna | Poms de Oro" },
       {
         name: "description",
         content: "Maak kennis met Nacho, onze black-tan dekreu, en Luna, onze crèmekleurige moederhond. Beiden met FCI-stamboom.",
       },
       { property: "og:title", content: "Onze honden — Nacho & Luna" },
-      { property: "og:description", content: "De ouderdieren van kennel Corazón de Oro, met FCI-stamboom." },
+      { property: "og:description", content: "De ouderdieren van kennel Poms de Oro, met FCI-stamboom." },
     ],
   }),
   component: OnzeHonden,
