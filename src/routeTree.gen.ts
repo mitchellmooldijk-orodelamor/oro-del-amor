@@ -14,6 +14,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as OnzeHondenRouteImport } from './routes/onze-honden'
 import { Route as OverOnsRouteImport } from './routes/over-ons'
 import { Route as PupsRouteImport } from './routes/pups'
+import { Route as WieZijnWijRouteImport } from './routes/wie-zijn-wij'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,6 +41,11 @@ const PupsRoute = PupsRouteImport.update({
   path: '/pups',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WieZijnWijRoute = WieZijnWijRouteImport.update({
+  id: '/wie-zijn-wij',
+  path: '/wie-zijn-wij',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/onze-honden': typeof OnzeHondenRoute
   '/over-ons': typeof OverOnsRoute
   '/pups': typeof PupsRoute
+  '/wie-zijn-wij': typeof WieZijnWijRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/onze-honden': typeof OnzeHondenRoute
   '/over-ons': typeof OverOnsRoute
   '/pups': typeof PupsRoute
+  '/wie-zijn-wij': typeof WieZijnWijRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,13 +70,23 @@ export interface FileRoutesById {
   '/onze-honden': typeof OnzeHondenRoute
   '/over-ons': typeof OverOnsRoute
   '/pups': typeof PupsRoute
+  '/wie-zijn-wij': typeof WieZijnWijRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contact' | '/onze-honden' | '/over-ons' | '/pups'
+  fullPaths:
+    '/' | '/contact' | '/onze-honden' | '/over-ons' | '/pups' | '/wie-zijn-wij'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/onze-honden' | '/over-ons' | '/pups'
-  id: '__root__' | '/' | '/contact' | '/onze-honden' | '/over-ons' | '/pups'
+  to:
+    '/' | '/contact' | '/onze-honden' | '/over-ons' | '/pups' | '/wie-zijn-wij'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/onze-honden'
+    | '/over-ons'
+    | '/pups'
+    | '/wie-zijn-wij'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,6 +95,7 @@ export interface RootRouteChildren {
   OnzeHondenRoute: typeof OnzeHondenRoute
   OverOnsRoute: typeof OverOnsRoute
   PupsRoute: typeof PupsRoute
+  WieZijnWijRoute: typeof WieZijnWijRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -116,6 +135,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PupsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/wie-zijn-wij': {
+      id: '/wie-zijn-wij'
+      path: '/wie-zijn-wij'
+      fullPath: '/wie-zijn-wij'
+      preLoaderRoute: typeof WieZijnWijRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -125,6 +151,7 @@ const rootRouteChildren: RootRouteChildren = {
   OnzeHondenRoute: OnzeHondenRoute,
   OverOnsRoute: OverOnsRoute,
   PupsRoute: PupsRoute,
+  WieZijnWijRoute: WieZijnWijRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
