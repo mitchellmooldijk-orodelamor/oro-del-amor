@@ -171,14 +171,14 @@ function OverOns() {
           <Crown className="mx-auto h-6" />
           <p className="eyebrow mt-6">Poms de Oro</p>
           <h2 className="mt-4 font-display text-3xl tracking-[0.08em] uppercase sm:text-4xl">Een naam met betekenis</h2>
-          <p className="mt-4 font-script text-5xl text-gold sm:text-6xl">Hart van Goud</p>
+          <p className="mt-4 font-script text-5xl text-gold sm:text-6xl">Poms van Goud</p>
           <Ornament className="mt-6" />
           <div className="mx-auto max-w-2xl">
             <Paragraphs
               items={[
-                "De naam Poms de Oro betekent letterlijk Hart van Goud.",
+                "De naam Poms de Oro betekent letterlijk Poms van Goud.",
                 "Voor ons staat deze naam symbool voor alles waar onze kennel voor staat. Het hart waarmee het ooit begon bij Vino, de liefde die we voor onze honden voelen en de verantwoordelijkheid die we nemen voor iedere volgende generatie.",
-                "Een gouden hart staat voor liefde, vertrouwen, warmte en toewijding. Waarden die we niet alleen terug willen laten komen in de naam van onze kennel, maar vooral in de manier waarop we met onze honden omgaan en onze fokplannen vormgeven.",
+                "Goud staat voor ons voor liefde, vertrouwen, warmte en toewijding. Waarden die we niet alleen terug willen laten komen in de naam van onze kennel, maar vooral in de manier waarop we met onze honden omgaan en onze fokplannen vormgeven.",
                 "We willen toekomstige puppy-eigenaren niet alleen een prachtige Pomeranian meegeven, maar ook het vertrouwen dat er met aandacht, eerlijkheid en zorgvuldigheid is gewerkt aan de basis van hun nieuwe gezinslid.",
               ]}
             />
