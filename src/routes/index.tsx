@@ -80,7 +80,7 @@ function Index() {
               alt="Logo Poms de Oro Pomeranians: een gouden pomeriaan onder een kroon"
               width={1254}
               height={1254}
-              className="mx-auto w-full max-w-md glow-drop"
+              className="edge-fade mx-auto w-full max-w-md"
             />
           </div>
         </div>
