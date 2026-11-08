@@ -1,7 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { Crown, Ornament } from "@/components/site/Ornament";
+import { Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { TEUNTJEPLUIS_INSTAGRAM_HANDLE, TEUNTJEPLUIS_INSTAGRAM_URL } from "@/data/dogs";
 import gezinImg from "@/assets/gezin-mooldijk.jpg.asset.json";
 import ouderImg from "@/assets/mitchell-en-jill.jpg.asset.json";
 
@@ -125,6 +127,11 @@ function WieZijnWij() {
           <p className="mx-auto mt-6 max-w-xl font-serif text-xl leading-relaxed text-foreground/85">
             Daarnaast hebben wij hier in ons dorp ook een baby- en kinderkledingwinkel: Teuntjepluis.
           </p>
+          <Button asChild variant="goldOutline" size="xl" className="mt-10">
+            <a href={TEUNTJEPLUIS_INSTAGRAM_URL} target="_blank" rel="noreferrer">
+              <Instagram className="size-4" /> @{TEUNTJEPLUIS_INSTAGRAM_HANDLE}
+            </a>
+          </Button>
         </div>
       </section>
 

@@ -1,5 +1,5 @@
-import nachoImg from "@/assets/nacho-dekreu.png.asset.json";
-import lunaImg from "@/assets/luna-moeder.png.asset.json";
+import nachoImg from "@/assets/nacho-dekreu-profiel.png.asset.json";
+import lunaImg from "@/assets/luna-profiel.png.asset.json";
 
 export type Dog = {
   slug: string;
@@ -58,3 +58,6 @@ export const dogs: Dog[] = [
 export const INSTAGRAM_HANDLE = "nacho.thepom_";
 export const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
 export const CONTACT_EMAIL = "info@pomsdeoro.nl";
+
+export const TEUNTJEPLUIS_INSTAGRAM_HANDLE = "teuntjepluis_babyenkind";
+export const TEUNTJEPLUIS_INSTAGRAM_URL = `https://www.instagram.com/${TEUNTJEPLUIS_INSTAGRAM_HANDLE}/`;
