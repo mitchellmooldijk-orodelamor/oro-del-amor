@@ -1,6 +1,6 @@
 import logo from "@/assets/poms-de-oro-logo.jpg.asset.json";
 import lunaNachoImg from "@/assets/luna-nacho-kussen.jpg.asset.json";
-import lunaImg from "@/assets/luna-profiel.png.asset.json";
+import lunaImg from "@/assets/luna-profiel-poms-de-oro.png.asset.json";
 import puppies from "@/assets/puppies.jpg";
 
 export type NewsItem = {
