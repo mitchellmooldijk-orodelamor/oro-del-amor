@@ -58,3 +58,6 @@ export const dogs: Dog[] = [
 export const INSTAGRAM_HANDLE = "nacho.thepom_";
 export const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
 export const CONTACT_EMAIL = "info@pomsdeoro.nl";
+
+export const TEUNTJEPLUIS_INSTAGRAM_HANDLE = "teuntjepluis_babyenkind";
+export const TEUNTJEPLUIS_INSTAGRAM_URL = `https://www.instagram.com/${TEUNTJEPLUIS_INSTAGRAM_HANDLE}/`;
