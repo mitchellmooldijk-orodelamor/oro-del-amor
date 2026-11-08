@@ -1,5 +1,5 @@
-import nachoImg from "@/assets/nacho-dekreu.png.asset.json";
-import lunaImg from "@/assets/luna-moeder.png.asset.json";
+import nachoImg from "@/assets/nacho-dekreu-profiel.png.asset.json";
+import lunaImg from "@/assets/luna-profiel.png.asset.json";
 
 export type Dog = {
   slug: string;
