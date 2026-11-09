@@ -53,7 +53,8 @@ function Pups() {
   // Links naar /pups#dekreu openen meteen de eerste dekvraag en scrollen erheen.
   useEffect(() => {
     if (hash !== studFaq.id) return;
-    setStudOpen((v) => (v.length ? v : [studFaq.items[0].id]));
+    const first = studFaq.items[0]?.id;
+    if (first) setStudOpen((v) => (v.length ? v : [first]));
     requestAnimationFrame(() => document.getElementById(studFaq.id)?.scrollIntoView({ block: "start" }));
   }, [hash]);
 
