@@ -17,7 +17,7 @@ export type FaqGroup = {
 export const puppyFaq: FaqGroup = {
   id: "faq",
   eyebrow: "Voor toekomstige puppybaasjes",
-  title: "Veelgestelde vragen",
+  title: "Van wachtlijst tot thuis",
   items: [
     {
       id: "wachtlijst",
