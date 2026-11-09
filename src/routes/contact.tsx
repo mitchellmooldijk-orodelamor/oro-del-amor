@@ -1,9 +1,20 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
-import { Instagram, Mail } from "lucide-react";
+import { CalendarHeart, Instagram, Mail, MapPin, Navigation } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
+import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
-import { CONTACT_EMAIL, INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/data/dogs";
+import {
+  ADDRESS_CITY,
+  ADDRESS_STREET,
+  CONTACT_EMAIL,
+  INSTAGRAM_HANDLE,
+  INSTAGRAM_URL,
+  MAPS_DIRECTIONS_URL,
+  MAPS_EMBED_URL,
+  PHONE_DISPLAY,
+  WHATSAPP_URL,
+} from "@/data/dogs";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -11,10 +22,16 @@ export const Route = createFileRoute("/contact")({
       { title: "Contact | Poms de Oro Pomeranians" },
       {
         name: "description",
-        content: "Neem contact op met kennel Poms de Oro voor vragen over onze Pomeranians of de wachtlijst.",
+        content:
+          "Neem contact op met kennel Poms de Oro in Nieuwerkerk aan den IJssel via WhatsApp, Instagram of e-mail. Bezoek op afspraak.",
       },
       { property: "og:title", content: "Contact — Poms de Oro" },
-      { property: "og:description", content: "Vragen over onze Pomeranians of de wachtlijst? Neem contact op." },
+      {
+        property: "og:description",
+        content: "Vragen over onze Pomeranians of de wachtlijst? App, mail of bezoek ons op afspraak.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Contact,
@@ -44,6 +61,19 @@ function Contact() {
 
       <section className="mx-auto grid max-w-6xl gap-16 px-5 py-24 md:grid-cols-[1fr_1.3fr]">
         <div className="space-y-10">
+          <div className="border border-primary/50 bg-card p-8">
+            <WhatsAppIcon className="size-7 text-primary" />
+            <p className="eyebrow mt-5">WhatsApp</p>
+            <p className="mt-2 font-serif text-2xl">{PHONE_DISPLAY}</p>
+            <p className="mt-2 font-serif text-lg text-muted-foreground">
+              Stuur ons direct een berichtje, we reageren zo snel mogelijk.
+            </p>
+            <Button asChild variant="gold" size="lg" className="mt-6 w-full sm:w-auto">
+              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+                <WhatsAppIcon className="size-4" /> Chat via WhatsApp
+              </a>
+            </Button>
+          </div>
           <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="group block border border-border p-8 transition-colors hover:border-primary">
             <Instagram className="size-6 text-primary" strokeWidth={1.3} />
             <p className="eyebrow mt-5">Instagram</p>
@@ -76,6 +106,39 @@ function Contact() {
             Verstuur bericht
           </Button>
         </form>
+      </section>
+
+      <section className="border-t border-border bg-card/40">
+        <div className="mx-auto grid max-w-6xl items-stretch gap-12 px-5 py-24 md:grid-cols-[1fr_1.3fr]">
+          <div className="flex flex-col justify-center">
+            <MapPin className="size-6 text-primary" strokeWidth={1.3} />
+            <p className="eyebrow mt-5">Locatie</p>
+            <h2 className="mt-3 font-display text-2xl tracking-[0.12em] uppercase">Poms de Oro</h2>
+            <address className="mt-4 font-serif text-2xl leading-snug not-italic">
+              {ADDRESS_STREET}
+              <br />
+              {ADDRESS_CITY}
+            </address>
+            <p className="mt-6 flex items-center gap-3 font-serif text-lg text-primary italic">
+              <CalendarHeart className="size-5 shrink-0" strokeWidth={1.3} />
+              Bezoek uitsluitend op afspraak
+            </p>
+            <Button asChild variant="goldOutline" size="lg" className="mt-8 w-full sm:w-auto">
+              <a href={MAPS_DIRECTIONS_URL} target="_blank" rel="noreferrer">
+                <Navigation className="size-4" /> Routebeschrijving
+              </a>
+            </Button>
+          </div>
+          <div className="relative min-h-80 border border-border">
+            <iframe
+              title={`Kaart: ${ADDRESS_STREET}, ${ADDRESS_CITY}`}
+              src={MAPS_EMBED_URL}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="absolute inset-0 h-full w-full border-0"
+            />
+          </div>
+        </div>
       </section>
     </>
   );

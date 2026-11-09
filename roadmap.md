@@ -9,3 +9,10 @@
 - [x] Nacho: DNA weg, patella + SM/CM
 - [x] Nieuws-carrousel (swipebaar) op de homepagina
 - [x] Nieuwe pagina "Wie zijn wij?" met gezinsfoto's
+- [ ] Luna nieuwe profielfoto, "POMS DE ORO" even groot als bij Nacho
+- [ ] Nacho schofthoogte 22 cm (zoals op foto)
+- [ ] Contact: WhatsApp-knop, adres + Google Maps, bezoek op afspraak
+- [ ] Pups: FAQ (1–10 puppybaasjes, 11–13 dekreu Nacho, anker #dekreu)
+- [ ] Onze honden: bij Nacho verwijzing naar dekvoorwaarden
+- [ ] Menu "Over ons" → "Ons verhaal"; home "jouw gouden mandje"
+- [ ] Wacht op klant: echt e-mailadres, UBN-nummer

@@ -1,8 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useLocation } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { Check } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { SectionHeading } from "@/components/site/Ornament";
+import { FaqSection } from "@/components/site/FaqSection";
 import { Button } from "@/components/ui/button";
+import { puppyFaq, studFaq } from "@/data/faq";
 import puppies from "@/assets/puppies.jpg";
 
 export const Route = createFileRoute("/pups")({
@@ -11,10 +14,16 @@ export const Route = createFileRoute("/pups")({
       { title: "Pups & wachtlijst | Poms de Oro Pomeranians" },
       {
         name: "description",
-        content: "Interesse in een Pomeranian pup van Poms de Oro? Lees hoe onze werkwijze is en schrijf je in voor de wachtlijst.",
+        content:
+          "Interesse in een Pomeranian pup van Poms de Oro? Lees onze werkwijze, veelgestelde vragen en de dekvoorwaarden van Nacho.",
       },
       { property: "og:title", content: "Pups & wachtlijst — Poms de Oro" },
-      { property: "og:description", content: "Onze werkwijze en de wachtlijst voor toekomstige nestjes." },
+      {
+        property: "og:description",
+        content: "Onze werkwijze, de wachtlijst, veelgestelde vragen en dekaanvragen voor Nacho.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Pups,
@@ -24,7 +33,7 @@ const steps = [
   { n: "I", title: "Kennismaken", text: "Vertel ons over jezelf en je thuissituatie. We maken graag persoonlijk kennis." },
   { n: "II", title: "Wachtlijst", text: "Na het gesprek plaatsen wij je op de wachtlijst voor een toekomstig nestje." },
   { n: "III", title: "Opgroeien", text: "Je ontvangt regelmatig foto's en updates terwijl jouw pup bij ons opgroeit." },
-  { n: "IV", title: "Thuiskomst", text: "Met 8+ weken mag je pup mee naar huis, met alle uitleg en begeleiding." },
+  { n: "IV", title: "Thuiskomst", text: "Rond 8 à 9 weken mag je pup mee naar huis, met alle uitleg en begeleiding." },
 ];
 
 const included = [
@@ -37,6 +46,18 @@ const included = [
 ];
 
 function Pups() {
+  const hash = useLocation({ select: (l) => l.hash });
+  const [puppyOpen, setPuppyOpen] = useState<string[]>([]);
+  const [studOpen, setStudOpen] = useState<string[]>([]);
+
+  // Links naar /pups#dekreu openen meteen de eerste dekvraag en scrollen erheen.
+  useEffect(() => {
+    if (hash !== studFaq.id) return;
+    const first = studFaq.items[0]?.id;
+    if (first) setStudOpen((v) => (v.length ? v : [first]));
+    requestAnimationFrame(() => document.getElementById(studFaq.id)?.scrollIntoView({ block: "start" }));
+  }, [hash]);
+
   return (
     <>
       <PageHero
@@ -78,7 +99,13 @@ function Pups() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-5 py-24 text-center">
+      <section className="mx-auto max-w-4xl px-5 py-24">
+        <SectionHeading eyebrow="FAQ" title="Veelgestelde vragen" script="alles wat je wilt weten" />
+        <FaqSection group={puppyFaq} open={puppyOpen} onOpenChange={setPuppyOpen} className="mt-16" />
+        <FaqSection group={studFaq} open={studOpen} onOpenChange={setStudOpen} className="mt-20" />
+      </section>
+
+      <section className="mx-auto max-w-3xl border-t border-border px-5 py-24 text-center">
         <h2 className="font-display text-3xl tracking-[0.08em] uppercase">Op de wachtlijst?</h2>
         <p className="mt-4 font-serif text-xl text-muted-foreground">
           Stuur ons een bericht — we nemen persoonlijk contact met je op.
