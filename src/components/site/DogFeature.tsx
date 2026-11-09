@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import type { Dog } from "@/data/dogs";
 import { cn } from "@/lib/utils";
 
@@ -48,6 +49,23 @@ export function DogFeature({ dog, reverse = false }: { dog: Dog; reverse?: boole
             </div>
           ))}
         </dl>
+
+        {dog.availableAsStud && (
+          <div className="mt-6 border border-primary/40 bg-card px-5 py-5">
+            <p className="eyebrow">Dekreu</p>
+            <p className="mt-2 font-serif text-lg leading-relaxed text-foreground/90">
+              {dog.name} staat op beperkte basis ter dekking voor geteste teven, conform het fokreglement van de
+              NKC.
+            </p>
+            <Link
+              to="/pups"
+              hash="dekreu"
+              className="mt-3 inline-block font-display text-xs tracking-[0.25em] text-primary uppercase underline decoration-primary/50 underline-offset-8 hover:decoration-primary"
+            >
+              Bekijk dekvoorwaarden & FAQ →
+            </Link>
+          </div>
+        )}
       </div>
     </article>
   );

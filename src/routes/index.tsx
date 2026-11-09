@@ -190,7 +190,7 @@ function Index() {
         <div className="relative mx-auto max-w-3xl px-5 py-28 text-center">
           <Crown className="mx-auto h-7" />
           <h2 className="mt-6 font-display text-3xl tracking-[0.08em] uppercase sm:text-5xl">Pups & wachtlijst</h2>
-          <p className="mt-3 font-script text-4xl text-gold sm:text-5xl">jouw gouden maatje</p>
+          <p className="mt-3 font-script text-4xl text-gold sm:text-5xl">jouw gouden mandje</p>
           <Ornament className="mt-6" />
           <p className="mx-auto mt-6 max-w-xl font-serif text-xl leading-relaxed text-foreground/85">
             Benieuwd naar een toekomstig nestje? Zet je op onze wachtlijst en wij houden je persoonlijk op de

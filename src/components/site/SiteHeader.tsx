@@ -7,7 +7,7 @@ const nav = [
   { to: "/wie-zijn-wij", label: "Wie zijn wij" },
   { to: "/onze-honden", label: "Onze honden" },
   { to: "/pups", label: "Pups" },
-  { to: "/over-ons", label: "Over ons" },
+  { to: "/over-ons", label: "Ons verhaal" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
