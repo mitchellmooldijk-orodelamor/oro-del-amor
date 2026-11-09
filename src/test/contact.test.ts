@@ -1,0 +1,23 @@
+import { describe, expect, it } from "vitest";
+import { MAPS_DIRECTIONS_URL, PHONE_DISPLAY, WHATSAPP_URL } from "@/data/dogs";
+import { puppyFaq, studFaq } from "@/data/faq";
+
+describe("contact details", () => {
+  it("WhatsApp opens a chat with 06 16 19 11 98", () => {
+    expect(PHONE_DISPLAY).toBe("06 16 19 11 98");
+    expect(WHATSAPP_URL.startsWith("https://wa.me/31616191198?text=")).toBe(true);
+  });
+
+  it("Google Maps route points to Mantaro 7, 2911 JE Nieuwerkerk aan den IJssel", () => {
+    const destination = new URL(MAPS_DIRECTIONS_URL).searchParams.get("destination");
+    expect(destination).toBe("Mantaro 7, 2911 JE Nieuwerkerk aan den IJssel");
+  });
+});
+
+describe("FAQ", () => {
+  it("has 10 puppy questions and 3 stud questions under #dekreu", () => {
+    expect(puppyFaq.items).toHaveLength(10);
+    expect(studFaq.items).toHaveLength(3);
+    expect(studFaq.id).toBe("dekreu");
+  });
+});

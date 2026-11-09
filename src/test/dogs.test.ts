@@ -18,6 +18,14 @@ describe("dog profiles", () => {
     expect(fact("Luna", "Gezondheid")).toBe("Getest op patella en SM/CM");
   });
 
+  it("Nacho's shoulder height is 22 cm, as on his photo", () => {
+    expect(fact("Nacho", "Schofthoogte")).toBe("22 cm");
+  });
+
+  it("only Nacho links to the stud conditions", () => {
+    expect(dogs.filter((d) => d.availableAsStud).map((d) => d.name)).toEqual(["Nacho"]);
+  });
+
   it("no dog shows a DNA-testen field anymore", () => {
     expect(dogs.flatMap((d) => d.facts.map((f) => f.label))).not.toContain("DNA-testen");
   });
