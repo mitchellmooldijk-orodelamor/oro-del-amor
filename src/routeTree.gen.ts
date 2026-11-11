@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as OnzeHondenRouteImport } from './routes/onze-honden'
 import { Route as OverOnsRouteImport } from './routes/over-ons'
 import { Route as PupsRouteImport } from './routes/pups'
@@ -24,6 +25,11 @@ const IndexRoute = IndexRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OnzeHondenRoute = OnzeHondenRouteImport.update({
@@ -50,6 +56,7 @@ const WieZijnWijRoute = WieZijnWijRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
   '/onze-honden': typeof OnzeHondenRoute
   '/over-ons': typeof OverOnsRoute
   '/pups': typeof PupsRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
   '/onze-honden': typeof OnzeHondenRoute
   '/over-ons': typeof OverOnsRoute
   '/pups': typeof PupsRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
   '/onze-honden': typeof OnzeHondenRoute
   '/over-ons': typeof OverOnsRoute
   '/pups': typeof PupsRoute
@@ -75,14 +84,27 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/contact' | '/onze-honden' | '/over-ons' | '/pups' | '/wie-zijn-wij'
+    | '/'
+    | '/contact'
+    | '/faq'
+    | '/onze-honden'
+    | '/over-ons'
+    | '/pups'
+    | '/wie-zijn-wij'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/contact' | '/onze-honden' | '/over-ons' | '/pups' | '/wie-zijn-wij'
+    | '/'
+    | '/contact'
+    | '/faq'
+    | '/onze-honden'
+    | '/over-ons'
+    | '/pups'
+    | '/wie-zijn-wij'
   id:
     | '__root__'
     | '/'
     | '/contact'
+    | '/faq'
     | '/onze-honden'
     | '/over-ons'
     | '/pups'
@@ -92,6 +114,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
+  FaqRoute: typeof FaqRoute
   OnzeHondenRoute: typeof OnzeHondenRoute
   OverOnsRoute: typeof OverOnsRoute
   PupsRoute: typeof PupsRoute
@@ -112,6 +135,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/onze-honden': {
@@ -148,6 +178,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
+  FaqRoute: FaqRoute,
   OnzeHondenRoute: OnzeHondenRoute,
   OverOnsRoute: OverOnsRoute,
   PupsRoute: PupsRoute,
