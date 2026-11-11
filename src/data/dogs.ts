@@ -12,7 +12,7 @@ export type Dog = {
   image: string;
   facts: { label: string; value: string }[];
   description: string;
-  /** Toont bij het profiel een verwijzing naar de dekvoorwaarden op /pups#dekreu. */
+  /** Toont bij het profiel een verwijzing naar de dekvoorwaarden op /faq#dekreu. */
   availableAsStud?: boolean;
 };
 
@@ -60,6 +60,9 @@ export const dogs: Dog[] = [
 
 export const INSTAGRAM_HANDLE = "nacho.thepom_";
 export const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
+/** Uniek Bedrijfsnummer (UBN), verplicht voor fokkers in Nederland. */
+export const UBN_NUMBER = "8976923";
+
 export const CONTACT_EMAIL = "info@orodelamor.nl";
 
 export const PHONE_DISPLAY = "06 16 19 11 98";

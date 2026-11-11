@@ -13,7 +13,7 @@ export type NewsItem = {
   text: string;
   image: string;
   imageAlt: string;
-  link?: { to: "/contact" | "/pups" | "/onze-honden" | "/wie-zijn-wij"; label: string };
+  link?: { to: "/contact" | "/pups" | "/faq" | "/onze-honden" | "/wie-zijn-wij"; label: string };
 };
 
 /** Nieuwste bericht bovenaan; de carrousel op de homepagina toont ze in deze volgorde. */

@@ -58,7 +58,7 @@ export function DogFeature({ dog, reverse = false }: { dog: Dog; reverse?: boole
               NKC.
             </p>
             <Link
-              to="/pups"
+              to="/faq"
               hash="dekreu"
               className="mt-3 inline-block font-display text-xs tracking-[0.25em] text-primary uppercase underline decoration-primary/50 underline-offset-8 hover:decoration-primary"
             >

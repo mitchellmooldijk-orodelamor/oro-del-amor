@@ -7,7 +7,7 @@ export type FaqBlock =
 export type FaqItem = { id: string; question: string; answer: FaqBlock[] };
 
 export type FaqGroup = {
-  /** Wordt ook gebruikt als anker op de pagina, bijv. /pups#dekreu. */
+  /** Wordt ook gebruikt als anker op de pagina, bijv. /faq#dekreu. */
   id: string;
   eyebrow: string;
   title: string;

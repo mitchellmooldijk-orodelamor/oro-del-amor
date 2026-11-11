@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Mail } from "lucide-react";
-import { CONTACT_EMAIL, INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/data/dogs";
+import { CONTACT_EMAIL, INSTAGRAM_HANDLE, INSTAGRAM_URL, UBN_NUMBER } from "@/data/dogs";
 import { Crown, Ornament } from "./Ornament";
 
 export function SiteFooter() {
@@ -41,6 +41,7 @@ export function SiteFooter() {
             { to: "/onze-honden", label: "Onze honden" },
             { to: "/pups", label: "Pups" },
             { to: "/over-ons", label: "Ons verhaal" },
+            { to: "/faq", label: "FAQ" },
             { to: "/contact", label: "Contact" },
           ].map((l) => (
             <Link
@@ -53,7 +54,10 @@ export function SiteFooter() {
           ))}
         </nav>
 
-        <p className="mt-10 text-xs text-muted-foreground/70">
+        <p className="mt-10 font-display text-[0.65rem] tracking-[0.3em] text-muted-foreground uppercase">
+          UBN {UBN_NUMBER} · FCI-stamboom
+        </p>
+        <p className="mt-3 text-xs text-muted-foreground/70">
           © {new Date().getFullYear()} Oro Del Amor Pomeranians
         </p>
       </div>

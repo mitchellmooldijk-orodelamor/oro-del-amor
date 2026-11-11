@@ -13,6 +13,7 @@ import {
   MAPS_DIRECTIONS_URL,
   MAPS_EMBED_URL,
   PHONE_DISPLAY,
+  UBN_NUMBER,
   WHATSAPP_URL,
 } from "@/data/dogs";
 
@@ -119,6 +120,9 @@ function Contact() {
               <br />
               {ADDRESS_CITY}
             </address>
+            <p className="mt-4 font-display text-xs tracking-[0.3em] text-muted-foreground uppercase">
+              UBN {UBN_NUMBER}
+            </p>
             <p className="mt-6 flex items-center gap-3 font-serif text-lg text-primary italic">
               <CalendarHeart className="size-5 shrink-0" strokeWidth={1.3} />
               Bezoek uitsluitend op afspraak
