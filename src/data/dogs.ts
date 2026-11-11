@@ -1,5 +1,5 @@
-import nachoImg from "@/assets/nacho-dekreu-profiel-poms-de-oro.png.asset.json";
-import lunaImg from "@/assets/luna-profiel-jewels-poms-de-oro.png.asset.json";
+import nachoImg from "@/assets/nacho-dekreu-profiel-oro-del-amor.png.asset.json";
+import lunaImg from "@/assets/luna-profiel-oro-del-amor.png.asset.json";
 
 export type Dog = {
   slug: string;
@@ -54,18 +54,18 @@ export const dogs: Dog[] = [
       { label: "Gezondheid", value: "Getest op patella en SM/CM" },
     ],
     description:
-      "Luna is ons zonnetje in huis: een zachte, crèmekleurige teef met een vrolijke blik en een groot hart. Als liefdevolle moeder vormt zij het hart van Poms de Oro.",
+      "Luna is ons zonnetje in huis: een zachte, crèmekleurige teef met een vrolijke blik en een groot hart. Als liefdevolle moeder vormt zij het hart van Oro Del Amor.",
   },
 ];
 
 export const INSTAGRAM_HANDLE = "nacho.thepom_";
 export const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
-export const CONTACT_EMAIL = "info@pomsdeoro.nl";
+export const CONTACT_EMAIL = "info@orodelamor.nl";
 
 export const PHONE_DISPLAY = "06 16 19 11 98";
 /** Internationaal formaat zonder +, zoals wa.me het verwacht. */
 export const WHATSAPP_NUMBER = "31616191198";
-export const WHATSAPP_MESSAGE = "Hallo Mitchell en Jill, ik heb interesse in een Pomeranian pup van Poms de Oro.";
+export const WHATSAPP_MESSAGE = "Hallo Mitchell en Jill, ik heb interesse in een Pomeranian pup van Oro Del Amor.";
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
 export const ADDRESS_STREET = "Mantaro 7";

@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Heart, ShieldCheck, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Crown, Ornament, SectionHeading } from "@/components/site/Ornament";
-import logo from "@/assets/poms-de-oro-logo.jpg.asset.json";
+import logo from "@/assets/oro-del-amor-logo.jpg";
 import aboutHome from "@/assets/about-home.jpg";
 import puppies from "@/assets/puppies.jpg";
 import { dogs } from "@/data/dogs";
@@ -11,13 +11,13 @@ import { NewsCarousel } from "@/components/site/NewsCarousel";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Poms de Oro Pomeranians — Pomeranians met een gouden hart" },
+      { title: "Oro Del Amor Pomeranians — Pomeranians met een gouden hart" },
       {
         name: "description",
         content:
-          "Kennel Poms de Oro fokt Pomeranians met liefde, passie en oog voor gezondheid. Ontmoet Nacho en Luna en ontdek onze pups.",
+          "Kennel Oro Del Amor fokt Pomeranians met liefde, passie en oog voor gezondheid. Ontmoet Nacho en Luna en ontdek onze pups.",
       },
-      { property: "og:title", content: "Poms de Oro Pomeranians" },
+      { property: "og:title", content: "Oro Del Amor Pomeranians" },
       {
         property: "og:description",
         content: "Pomeranians gefokt met liefde, excellence en passie. Ontmoet onze honden en pups.",
@@ -56,10 +56,10 @@ function Index() {
           <div className="animate-rise order-2 text-center md:order-1 md:text-left">
             <p className="eyebrow">Pomeranian kennel</p>
             <h1 className="mt-5 font-script text-6xl leading-[0.95] text-gold sm:text-7xl lg:text-8xl">
-              Poms de Oro
+              Oro Del Amor
             </h1>
             <p className="mt-4 font-display text-sm tracking-[0.4em] text-foreground/80 uppercase">
-              Poms van Goud
+              Goud van de Liefde
             </p>
             <p className="mx-auto mt-6 max-w-md font-serif text-xl leading-relaxed text-muted-foreground md:mx-0">
               Kleine Pomeranians met een groot hart — met zorg gefokt, liefdevol opgevoed en klaar om
@@ -77,10 +77,10 @@ function Index() {
 
           <div className="animate-rise order-1 md:order-2">
             <img
-              src={logo.url}
-              alt="Logo Poms de Oro Pomeranians: een gouden pomeriaan onder een kroon"
-              width={1254}
-              height={1254}
+              src={logo}
+              alt="Logo Oro Del Amor Pomeranians: een gouden pomeriaan onder een kroon"
+              width={1264}
+              height={1264}
               className="edge-fade mx-auto w-full max-w-md"
             />
           </div>
@@ -160,7 +160,7 @@ function Index() {
             </h2>
             <p className="mt-2 font-script text-4xl text-beige-muted">voor elk klein hartje</p>
             <p className="mt-6 font-serif text-xl leading-relaxed text-beige-muted">
-              Bij Poms de Oro is iedere pup familie. Ze worden geboren en groeien op in onze
+              Bij Oro Del Amor is iedere pup familie. Ze worden geboren en groeien op in onze
               woonkamer, wennen aan geluiden, kinderen en bezoek, en krijgen zo de beste start voor een
               stabiel en vrolijk karakter.
             </p>

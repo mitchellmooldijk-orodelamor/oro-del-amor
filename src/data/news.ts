@@ -1,6 +1,6 @@
-import logo from "@/assets/poms-de-oro-logo.jpg.asset.json";
+import logo from "@/assets/oro-del-amor-logo.jpg";
 import lunaNachoImg from "@/assets/luna-nacho-kussen.jpg.asset.json";
-import lunaImg from "@/assets/luna-profiel-jewels-poms-de-oro.png.asset.json";
+import lunaImg from "@/assets/luna-profiel-oro-del-amor.png.asset.json";
 import puppies from "@/assets/puppies.jpg";
 
 export type NewsItem = {
@@ -23,9 +23,9 @@ export const news: NewsItem[] = [
     category: "Nieuws",
     date: "November 2026",
     title: "Welkom op onze nieuwe website",
-    text: "Poms de Oro heeft een eigen website! Hier lees je voortaan al het nieuws over onze honden, toekomstige nestjes en pups.",
-    image: logo.url,
-    imageAlt: "Logo van Poms de Oro Pomeranians",
+    text: "Oro Del Amor heeft een eigen website! Hier lees je voortaan al het nieuws over onze honden, toekomstige nestjes en pups.",
+    image: logo,
+    imageAlt: "Logo van Oro Del Amor Pomeranians",
   },
   {
     id: "verwachte-pups",

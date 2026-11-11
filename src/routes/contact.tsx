@@ -19,13 +19,13 @@ import {
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact | Poms de Oro Pomeranians" },
+      { title: "Contact | Oro Del Amor Pomeranians" },
       {
         name: "description",
         content:
-          "Neem contact op met kennel Poms de Oro in Nieuwerkerk aan den IJssel via WhatsApp, Instagram of e-mail. Bezoek op afspraak.",
+          "Neem contact op met kennel Oro Del Amor in Nieuwerkerk aan den IJssel via WhatsApp, Instagram of e-mail. Bezoek op afspraak.",
       },
-      { property: "og:title", content: "Contact — Poms de Oro" },
+      { property: "og:title", content: "Contact — Oro Del Amor" },
       {
         property: "og:description",
         content: "Vragen over onze Pomeranians of de wachtlijst? App, mail of bezoek ons op afspraak.",
@@ -113,7 +113,7 @@ function Contact() {
           <div className="flex flex-col justify-center">
             <MapPin className="size-6 text-primary" strokeWidth={1.3} />
             <p className="eyebrow mt-5">Locatie</p>
-            <h2 className="mt-3 font-display text-2xl tracking-[0.12em] uppercase">Poms de Oro</h2>
+            <h2 className="mt-3 font-display text-2xl tracking-[0.12em] uppercase">Oro Del Amor</h2>
             <address className="mt-4 font-serif text-2xl leading-snug not-italic">
               {ADDRESS_STREET}
               <br />
