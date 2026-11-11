@@ -8,6 +8,7 @@ const nav = [
   { to: "/onze-honden", label: "Onze honden" },
   { to: "/pups", label: "Pups" },
   { to: "/over-ons", label: "Ons verhaal" },
+  { to: "/faq", label: "FAQ" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -18,7 +19,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:h-20">
         <Link to="/" className="group flex flex-col leading-none" onClick={() => setOpen(false)}>
-          <span className="font-script text-3xl text-gold sm:text-4xl">Poms de Oro</span>
+          <span className="font-script text-3xl text-gold sm:text-4xl">Oro Del Amor</span>
           <span className="mt-0.5 pl-1 font-display text-[0.55rem] tracking-[0.5em] text-muted-foreground uppercase">
             Pomeranians
           </span>

@@ -10,13 +10,13 @@ import ouderImg from "@/assets/mitchell-en-jill.jpg.asset.json";
 export const Route = createFileRoute("/wie-zijn-wij")({
   head: () => ({
     meta: [
-      { title: "Wie zijn wij? | Poms de Oro Pomeranians" },
+      { title: "Wie zijn wij? | Oro Del Amor Pomeranians" },
       {
         name: "description",
         content:
-          "Maak kennis met het gezin achter Poms de Oro: Mitchell, Jill, Chezz, Romée en onze honden Vino, Nacho en Luna uit Nieuwerkerk aan den IJssel.",
+          "Maak kennis met het gezin achter Oro Del Amor: Mitchell, Jill, Chezz, Romée en onze honden Vino, Nacho en Luna uit Nieuwerkerk aan den IJssel.",
       },
-      { property: "og:title", content: "Wie zijn wij? — Poms de Oro Pomeranians" },
+      { property: "og:title", content: "Wie zijn wij? — Oro Del Amor Pomeranians" },
       {
         property: "og:description",
         content: "Wij zijn een gezin van 7 — onze honden rekenen we uiteraard mee.",

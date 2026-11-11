@@ -1,18 +1,12 @@
 # Roadmap
 - [x] Design system zwart/goud/beige + fonts
-- [x] Home, Onze honden, Pups, Over ons, Contact pagina's
-- [x] Logo, Nacho- en Luna-foto's van de klant verwerken
-- [x] Favicon uit logo
-- [x] Naamswijziging naar Poms de Oro + nieuw logo en favicon
-- [x] Home: "Een gouden hart" → "Poms van Goud"; Excellence-tekst fokreglement
-- [x] Luna: kennel Poms Jewels of my heart, geb. 18-10-2025, patella + SM/CM, DNA weg
-- [x] Nacho: DNA weg, patella + SM/CM
-- [x] Nieuws-carrousel (swipebaar) op de homepagina
-- [x] Nieuwe pagina "Wie zijn wij?" met gezinsfoto's
-- [ ] Luna nieuwe profielfoto, "POMS DE ORO" even groot als bij Nacho
-- [ ] Nacho schofthoogte 22 cm (zoals op foto)
-- [ ] Contact: WhatsApp-knop, adres + Google Maps, bezoek op afspraak
-- [ ] Pups: FAQ (1–10 puppybaasjes, 11–13 dekreu Nacho, anker #dekreu)
-- [ ] Onze honden: bij Nacho verwijzing naar dekvoorwaarden
-- [ ] Menu "Over ons" → "Ons verhaal"; home "jouw gouden mandje"
-- [ ] Wacht op klant: echt e-mailadres, UBN-nummer
+- [x] Pagina's: Home, Wie zijn wij, Onze honden, Pups, Ons verhaal, FAQ, Contact
+- [x] Logo, Nacho- en Luna-foto's, favicon
+- [x] Nieuws-carrousel op de homepagina
+- [x] Contact: WhatsApp-knop, adres + Google Maps, bezoek op afspraak
+- [x] Nacho 22 cm, verwijzing naar dekvoorwaarden
+- [x] Naamswijziging naar Oro Del Amor (teksten, logo, foto's Nacho en Luna)
+- [x] UBN 8976923 in footer en op contactpagina
+- [x] Aparte FAQ-pagina in menu en footer
+- [x] Meelopende WhatsApp-knop op elke pagina
+- [ ] Wacht op klant: echt e-mailadres (nu placeholder info@orodelamor.nl)

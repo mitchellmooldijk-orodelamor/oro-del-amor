@@ -14,6 +14,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 
 function NotFoundComponent() {
   return (
@@ -80,9 +81,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Poms de Oro Pomeranians" },
-      { name: "description", content: "Kennel Poms de Oro — Pomeranians gefokt met liefde, passie en oog voor kwaliteit." },
-      { name: "author", content: "Poms de Oro" },
+      { title: "Oro Del Amor Pomeranians" },
+      { name: "description", content: "Kennel Oro Del Amor — Pomeranians gefokt met liefde, passie en oog voor kwaliteit." },
+      { name: "author", content: "Oro Del Amor" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -132,6 +133,7 @@ function RootComponent() {
           <Outlet />
         </main>
         <SiteFooter />
+        <FloatingWhatsApp />
       </div>
     </QueryClientProvider>
   );

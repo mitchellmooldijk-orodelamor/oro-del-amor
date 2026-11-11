@@ -10,13 +10,13 @@ import lunaImg from "@/assets/luna-nacho-kussen.jpg.asset.json";
 export const Route = createFileRoute("/over-ons")({
   head: () => ({
     meta: [
-      { title: "Ons verhaal | Poms de Oro Pomeranians" },
+      { title: "Ons verhaal | Oro Del Amor Pomeranians" },
       {
         name: "description",
         content:
-          "Het verhaal achter Poms de Oro: begonnen bij Vino, gegroeid met Nacho en Luna. Verantwoord fokken met liefde, kennis en eerlijkheid.",
+          "Het verhaal achter Oro Del Amor: begonnen bij Vino, gegroeid met Nacho en Luna. Verantwoord fokken met liefde, kennis en eerlijkheid.",
       },
-      { property: "og:title", content: "Ons verhaal — Poms de Oro Pomeranians" },
+      { property: "og:title", content: "Ons verhaal — Oro Del Amor Pomeranians" },
       {
         property: "og:description",
         content: "Geboren uit liefde. Gedreven door ervaring. Gebouwd op verantwoordelijkheid.",
@@ -55,7 +55,7 @@ function OverOns() {
   return (
     <>
       <PageHero
-        eyebrow="Poms de Oro Pomeranians"
+        eyebrow="Oro Del Amor Pomeranians"
         title="Ons verhaal"
         script="een gouden hart"
         intro="Geboren uit liefde. Gedreven door ervaring. Gebouwd op verantwoordelijkheid."
@@ -169,14 +169,14 @@ function OverOns() {
         <div className="sparkle absolute inset-0 opacity-60" aria-hidden="true" />
         <div className="relative mx-auto max-w-3xl px-5 py-24 text-center">
           <Crown className="mx-auto h-6" />
-          <p className="eyebrow mt-6">Poms de Oro</p>
+          <p className="eyebrow mt-6">Oro Del Amor</p>
           <h2 className="mt-4 font-display text-3xl tracking-[0.08em] uppercase sm:text-4xl">Een naam met betekenis</h2>
-          <p className="mt-4 font-script text-5xl text-gold sm:text-6xl">Poms van Goud</p>
+          <p className="mt-4 font-script text-5xl text-gold sm:text-6xl">Goud van de Liefde</p>
           <Ornament className="mt-6" />
           <div className="mx-auto max-w-2xl">
             <Paragraphs
               items={[
-                "De naam Poms de Oro betekent letterlijk Poms van Goud.",
+                "De naam Oro Del Amor betekent letterlijk Goud van de Liefde.",
                 "Voor ons staat deze naam symbool voor alles waar onze kennel voor staat. Het hart waarmee het ooit begon bij Vino, de liefde die we voor onze honden voelen en de verantwoordelijkheid die we nemen voor iedere volgende generatie.",
                 "Goud staat voor ons voor liefde, vertrouwen, warmte en toewijding. Waarden die we niet alleen terug willen laten komen in de naam van onze kennel, maar vooral in de manier waarop we met onze honden omgaan en onze fokplannen vormgeven.",
                 "We willen toekomstige puppy-eigenaren niet alleen een prachtige Pomeranian meegeven, maar ook het vertrouwen dat er met aandacht, eerlijkheid en zorgvuldigheid is gewerkt aan de basis van hun nieuwe gezinslid.",
@@ -220,7 +220,7 @@ function OverOns() {
       {/* Slot */}
       <section className="mx-auto max-w-3xl px-5 py-24 text-center">
         <Ornament />
-        <p className="eyebrow mt-8">Poms de Oro Pomeranians</p>
+        <p className="eyebrow mt-8">Oro Del Amor Pomeranians</p>
         <p className="mt-4 font-script text-4xl text-gold sm:text-5xl">Breeding with Love, Excellence &amp; Passion</p>
         <p className="mx-auto mt-6 max-w-xl font-serif text-xl leading-relaxed text-muted-foreground">
           Een verhaal dat begon bij Vino. Een passie die verder groeide met Nacho en Luna. En een toekomst die we

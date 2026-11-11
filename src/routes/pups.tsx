@@ -1,23 +1,20 @@
-import { createFileRoute, Link, useLocation } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { SectionHeading } from "@/components/site/Ornament";
-import { FaqSection } from "@/components/site/FaqSection";
 import { Button } from "@/components/ui/button";
-import { puppyFaq, studFaq } from "@/data/faq";
 import puppies from "@/assets/puppies.jpg";
 
 export const Route = createFileRoute("/pups")({
   head: () => ({
     meta: [
-      { title: "Pups & wachtlijst | Poms de Oro Pomeranians" },
+      { title: "Pups & wachtlijst | Oro Del Amor Pomeranians" },
       {
         name: "description",
         content:
-          "Interesse in een Pomeranian pup van Poms de Oro? Lees onze werkwijze, veelgestelde vragen en de dekvoorwaarden van Nacho.",
+          "Interesse in een Pomeranian pup van Oro Del Amor? Lees onze werkwijze, veelgestelde vragen en de dekvoorwaarden van Nacho.",
       },
-      { property: "og:title", content: "Pups & wachtlijst — Poms de Oro" },
+      { property: "og:title", content: "Pups & wachtlijst — Oro Del Amor" },
       {
         property: "og:description",
         content: "Onze werkwijze, de wachtlijst, veelgestelde vragen en dekaanvragen voor Nacho.",
@@ -46,18 +43,6 @@ const included = [
 ];
 
 function Pups() {
-  const hash = useLocation({ select: (l) => l.hash });
-  const [puppyOpen, setPuppyOpen] = useState<string[]>([]);
-  const [studOpen, setStudOpen] = useState<string[]>([]);
-
-  // Links naar /pups#dekreu openen meteen de eerste dekvraag en scrollen erheen.
-  useEffect(() => {
-    if (hash !== studFaq.id) return;
-    const first = studFaq.items[0]?.id;
-    if (first) setStudOpen((v) => (v.length ? v : [first]));
-    requestAnimationFrame(() => document.getElementById(studFaq.id)?.scrollIntoView({ block: "start" }));
-  }, [hash]);
-
   return (
     <>
       <PageHero
@@ -99,10 +84,20 @@ function Pups() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-5 py-24">
+      <section className="mx-auto max-w-4xl px-5 py-24 text-center">
         <SectionHeading eyebrow="FAQ" title="Veelgestelde vragen" script="alles wat je wilt weten" />
-        <FaqSection group={puppyFaq} open={puppyOpen} onOpenChange={setPuppyOpen} className="mt-16" />
-        <FaqSection group={studFaq} open={studOpen} onOpenChange={setStudOpen} className="mt-20" />
+        <p className="mx-auto mt-8 max-w-2xl font-serif text-xl leading-relaxed text-muted-foreground">
+          Over de wachtlijst, kraamvisite, de eerste nachten thuis en de dekvoorwaarden van Nacho — alle antwoorden
+          staan overzichtelijk op onze FAQ-pagina.
+        </p>
+        <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <Button asChild variant="goldOutline" size="xl">
+            <Link to="/faq">Bekijk alle vragen</Link>
+          </Button>
+          <Button asChild variant="goldOutline" size="xl">
+            <Link to="/faq" hash="dekreu">Dekaanvragen Nacho</Link>
+          </Button>
+        </div>
       </section>
 
       <section className="mx-auto max-w-3xl border-t border-border px-5 py-24 text-center">
