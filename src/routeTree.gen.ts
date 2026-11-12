@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as HetRasRouteImport } from './routes/het-ras'
 import { Route as OnzeHondenRouteImport } from './routes/onze-honden'
 import { Route as OverOnsRouteImport } from './routes/over-ons'
 import { Route as PupsRouteImport } from './routes/pups'
@@ -30,6 +31,11 @@ const ContactRoute = ContactRouteImport.update({
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HetRasRoute = HetRasRouteImport.update({
+  id: '/het-ras',
+  path: '/het-ras',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OnzeHondenRoute = OnzeHondenRouteImport.update({
@@ -57,6 +63,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/het-ras': typeof HetRasRoute
   '/onze-honden': typeof OnzeHondenRoute
   '/over-ons': typeof OverOnsRoute
   '/pups': typeof PupsRoute
@@ -66,6 +73,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/het-ras': typeof HetRasRoute
   '/onze-honden': typeof OnzeHondenRoute
   '/over-ons': typeof OverOnsRoute
   '/pups': typeof PupsRoute
@@ -76,6 +84,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/het-ras': typeof HetRasRoute
   '/onze-honden': typeof OnzeHondenRoute
   '/over-ons': typeof OverOnsRoute
   '/pups': typeof PupsRoute
@@ -87,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/faq'
+    | '/het-ras'
     | '/onze-honden'
     | '/over-ons'
     | '/pups'
@@ -96,6 +106,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/faq'
+    | '/het-ras'
     | '/onze-honden'
     | '/over-ons'
     | '/pups'
@@ -105,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/faq'
+    | '/het-ras'
     | '/onze-honden'
     | '/over-ons'
     | '/pups'
@@ -115,6 +127,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
+  HetRasRoute: typeof HetRasRoute
   OnzeHondenRoute: typeof OnzeHondenRoute
   OverOnsRoute: typeof OverOnsRoute
   PupsRoute: typeof PupsRoute
@@ -142,6 +155,13 @@ declare module '@tanstack/react-router' {
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/het-ras': {
+      id: '/het-ras'
+      path: '/het-ras'
+      fullPath: '/het-ras'
+      preLoaderRoute: typeof HetRasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/onze-honden': {
@@ -179,6 +199,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
+  HetRasRoute: HetRasRoute,
   OnzeHondenRoute: OnzeHondenRoute,
   OverOnsRoute: OverOnsRoute,
   PupsRoute: PupsRoute,

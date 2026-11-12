@@ -7,6 +7,7 @@ const nav = [
   { to: "/wie-zijn-wij", label: "Wie zijn wij" },
   { to: "/onze-honden", label: "Onze honden" },
   { to: "/pups", label: "Pups" },
+  { to: "/het-ras", label: "Het ras" },
   { to: "/over-ons", label: "Ons verhaal" },
   { to: "/faq", label: "Veelgestelde vragen" },
   { to: "/contact", label: "Contact" },
