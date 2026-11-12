@@ -10,3 +10,4 @@
 - [x] Aparte FAQ-pagina in menu en footer
 - [x] Meelopende WhatsApp-knop op elke pagina
 - [ ] Wacht op klant: echt e-mailadres (nu placeholder info@orodelamor.nl)
+- [x] Nieuw logo overal, Pomeranians gecentreerd, WhatsApp-glans

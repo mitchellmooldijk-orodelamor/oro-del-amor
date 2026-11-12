@@ -1,4 +1,5 @@
-import logo from "@/assets/oro-del-amor-logo.jpg";
+import logoAsset from "@/assets/oro-del-amor-logo-nieuw.png.asset.json";
+const logo = logoAsset.url;
 import lunaNachoImg from "@/assets/luna-nacho-kussen.jpg.asset.json";
 import lunaImg from "@/assets/luna-profiel-oro-del-amor.png.asset.json";
 import puppies from "@/assets/puppies.jpg";
