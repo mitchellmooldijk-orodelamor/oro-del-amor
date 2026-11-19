@@ -103,10 +103,10 @@ function Pups() {
       <section className="mx-auto max-w-3xl border-t border-border px-5 py-24 text-center">
         <h2 className="font-display text-3xl tracking-[0.08em] uppercase">Op de wachtlijst?</h2>
         <p className="mt-4 font-serif text-xl text-muted-foreground">
-          Stuur ons een bericht — we nemen persoonlijk contact met je op.
+          Vul onze vragenlijst in — we lezen je antwoorden persoonlijk en nemen contact met je op.
         </p>
         <Button asChild variant="gold" size="xl" className="mt-10">
-          <Link to="/contact">Aanmelden</Link>
+          <Link to="/wachtlijst">Aanmelden</Link>
         </Button>
       </section>
     </>

@@ -198,7 +198,7 @@ function Index() {
             hoogte.
           </p>
           <Button asChild variant="gold" size="xl" className="mt-10">
-            <Link to="/contact">Neem contact op</Link>
+            <Link to="/wachtlijst">Aanmelden voor de wachtlijst</Link>
           </Button>
         </div>
       </section>

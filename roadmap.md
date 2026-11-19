@@ -9,5 +9,8 @@
 - [x] UBN 8976923 in footer en op contactpagina
 - [x] Aparte FAQ-pagina in menu en footer
 - [x] Meelopende WhatsApp-knop op elke pagina
+- [x] Wachtlijst-vragenlijst met opslag van antwoorden (/wachtlijst)
+- [ ] Wacht op klant: e-mailmelding bij nieuwe aanmelding (eigen domein nodig)
+- [x] Het ras + verzorgingshulp gecontroleerd
 - [ ] Wacht op klant: echt e-mailadres (nu placeholder info@orodelamor.nl)
 - [x] Nieuw logo overal, Pomeranians gecentreerd, WhatsApp-glans

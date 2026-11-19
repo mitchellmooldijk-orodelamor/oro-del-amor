@@ -19,20 +19,20 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:h-20">
-        <Link to="/" className="group flex flex-col items-center leading-none" onClick={() => setOpen(false)}>
+        <Link to="/" className="group flex shrink-0 flex-col items-center leading-none whitespace-nowrap" onClick={() => setOpen(false)}>
           <span className="font-script text-3xl text-gold sm:text-4xl">Oro Del Amor</span>
           <span className="mt-0.5 pl-[0.5em] text-center font-display text-[0.55rem] tracking-[0.5em] text-muted-foreground uppercase">
             Pomeranians
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex xl:gap-8">
+        <nav className="hidden items-center gap-5 xl:flex">
           {nav.map((item) => (
             <Link
               key={item.to}
               to={item.to}
               activeOptions={{ exact: item.to === "/" }}
-              className="font-display text-[0.7rem] tracking-[0.25em] text-muted-foreground uppercase transition-colors hover:text-primary data-[status=active]:text-primary"
+              className="font-display text-[0.65rem] tracking-[0.15em] whitespace-nowrap text-muted-foreground uppercase transition-colors hover:text-primary data-[status=active]:text-primary"
             >
               {item.label}
             </Link>
@@ -41,7 +41,7 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="text-primary lg:hidden"
+          className="text-primary xl:hidden"
           aria-label={open ? "Menu sluiten" : "Menu openen"}
           onClick={() => setOpen((v) => !v)}
         >
@@ -50,7 +50,7 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <nav className="animate-rise border-t border-border bg-background lg:hidden">
+        <nav className="animate-rise border-t border-border bg-background xl:hidden">
           <ul className="flex flex-col px-5 py-4">
             {nav.map((item) => (
               <li key={item.to}>

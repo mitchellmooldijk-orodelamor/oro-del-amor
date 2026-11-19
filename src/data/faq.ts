@@ -25,7 +25,7 @@ export const puppyFaq: FaqGroup = {
       answer: [
         {
           type: "p",
-          text: "Via onze contactpagina kun je je interesse kenbaar maken. Wij vinden het welzijn van onze pups en een perfecte match met het nieuwe thuis het allerbelangrijkste. Daarom werken wij met een vragenlijst waarin we vragen naar jouw woonsituatie, leefritme en ervaring.",
+          text: "Via het aanmeldformulier op onze wachtlijstpagina kun je je interesse kenbaar maken. Wij vinden het welzijn van onze pups en een perfecte match met het nieuwe thuis het allerbelangrijkste. Daarom werken wij met een vragenlijst waarin we vragen naar jouw woonsituatie, leefritme en ervaring.",
         },
         {
           type: "p",

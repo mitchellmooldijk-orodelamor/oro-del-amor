@@ -14,7 +14,7 @@ export type NewsItem = {
   text: string;
   image: string;
   imageAlt: string;
-  link?: { to: "/contact" | "/pups" | "/faq" | "/onze-honden" | "/wie-zijn-wij"; label: string };
+  link?: { to: "/contact" | "/pups" | "/faq" | "/onze-honden" | "/wie-zijn-wij" | "/wachtlijst"; label: string };
 };
 
 /** Nieuwste bericht bovenaan; de carrousel op de homepagina toont ze in deze volgorde. */
@@ -35,7 +35,7 @@ export const news: NewsItem[] = [
     text: "Zodra er een nestje verwacht wordt, lees je het hier als eerste. Wil je niets missen? Zet je dan op onze wachtlijst.",
     image: puppies,
     imageAlt: "Drie Pomeranian pups in een linnen mand",
-    link: { to: "/contact", label: "Op de wachtlijst" },
+    link: { to: "/wachtlijst", label: "Op de wachtlijst" },
   },
   {
     id: "gezondheid",

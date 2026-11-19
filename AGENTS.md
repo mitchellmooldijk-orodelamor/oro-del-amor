@@ -35,3 +35,4 @@ use the editor.
 - FAQ content lives in `src/data/faq.ts` and is rendered on `/faq` (anchors `#faq`, `#dekreu`); other pages link there. Why: one FAQ page reachable from the menu.
 - Home news carousel items live in `src/data/news.ts` (newest first); no backend, so new posts are added there. Why: one place to post kennel updates.
 - Customer-supplied photos are CDN asset pointers (`src/assets/*.asset.json`); generated images are plain imports. Why: keeps large uploads out of the repo.
+- Waitlist questionnaire: fields and validation in `src/data/waitlist.ts` (shared by form and server); submissions are inserted server-side into `public.waitlist_applications` (RLS on, no visitor policies). Why: answers stay private and are never readable from the browser.
