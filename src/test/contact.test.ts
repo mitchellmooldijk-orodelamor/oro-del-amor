@@ -26,8 +26,8 @@ describe("kennel registration", () => {
 });
 
 describe("FAQ", () => {
-  it("has 10 puppy questions and 3 stud questions under #dekreu", () => {
-    expect(puppyFaq.items).toHaveLength(10);
+  it("has 11 puppy questions and 3 stud questions under #dekreu", () => {
+    expect(puppyFaq.items).toHaveLength(11);
     expect(studFaq.items).toHaveLength(3);
     expect(studFaq.id).toBe("dekreu");
   });

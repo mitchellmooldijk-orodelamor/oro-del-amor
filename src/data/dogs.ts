@@ -63,7 +63,7 @@ export const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
 /** Uniek Bedrijfsnummer (UBN), verplicht voor fokkers in Nederland. */
 export const UBN_NUMBER = "8976923";
 
-export const CONTACT_EMAIL = "info@orodelamor.nl";
+export const CONTACT_EMAIL = "info@orodelamorpoms.nl";
 
 export const PHONE_DISPLAY = "06 16 19 11 98";
 /** Internationaal formaat zonder +, zoals wa.me het verwacht. */

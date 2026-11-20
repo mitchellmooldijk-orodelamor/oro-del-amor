@@ -29,7 +29,7 @@ export const puppyFaq: FaqGroup = {
         },
         {
           type: "p",
-          text: "Aan de hand van deze antwoorden beoordelen wij zorgvuldig of een pup uit ons nest passend is voor plaatsing. Het kan voorkomen dat we op basis hiervan besluiten om een pup niet te plaatsen, wanneer wij van mening zijn dat de situatie op dat moment niet optimaal aansluit bij de behoeften van het ras of de pup. Zo waarborgen we dat ieder hondje in het best passende gouden mandje terechtkomt.",
+          text: "Aan de hand van de antwoorden uit het formulier nodigen wij je wel of niet uit voor een persoonlijke kennismaking. Zo kan het ook voorkomen dat we op basis van de antwoorden besluiten dit niet te doen. Zo waarborgen we dat ieder hondje in het best passende gouden mandje terechtkomt.",
         },
       ],
     },
@@ -39,7 +39,17 @@ export const puppyFaq: FaqGroup = {
       answer: [
         {
           type: "p",
-          text: "De eerste weken hebben de moederhond en haar pups absolute rust nodig om te herstellen en goed te groeien. Vanaf een leeftijd van circa 3 tot 4 weken zijn geïnteresseerden van harte welkom voor een eerste kraambezoek en een persoonlijke kennismaking bij ons thuis.",
+          text: "De eerste weken hebben de moederhond en haar pups absolute rust nodig om te herstellen en goed te groeien. De bezoeken vinden plaats op twee momenten: bij een leeftijd van 4 weken en bij 6 weken. De persoonlijke kennismaking is dan al geweest, zoals vermeld bij de vraag over de wachtlijst.",
+        },
+      ],
+    },
+    {
+      id: "updates",
+      question: "Hoe houden jullie ons op de hoogte na de bevalling?",
+      answer: [
+        {
+          type: "p",
+          text: "We houden iedereen op de hoogte via WhatsApp. Hier delen we verhalen, updates en foto's van de groei van de pups. Ook kunnen onze socials gevolgd worden voor de dagelijkse foto's en updates.",
         },
       ],
     },
@@ -71,7 +81,9 @@ export const puppyFaq: FaqGroup = {
           type: "list",
           intro: "Iedere pup vertrekt met:",
           items: [
-            { text: "Een officiële FCI-stamboom (Raad van Beheer)" },
+            {
+              text: "Een officiële FCI-stamboom — deze schrijven wij over en wordt later door de Raad van Beheer opgestuurd",
+            },
             { text: "Een geregistreerd Europees dierenpaspoort" },
             { text: "Een microchip en officiële registratie in de databank" },
             { text: "Leeftijdsgebonden vaccinaties en ontwormingsschema" },
