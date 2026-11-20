@@ -8,6 +8,13 @@
       "when": 1795074209351,
       "tag": "0000_migration",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1795156897847,
+      "tag": "0001_create_contact_messages",
+      "breakpoints": true
     }
   ]
 }

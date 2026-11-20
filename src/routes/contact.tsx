@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
-import { CalendarHeart, Instagram, Mail, MapPin, Navigation } from "lucide-react";
+import { useServerFn } from "@tanstack/react-start";
+import { CalendarHeart, Check, Instagram, Loader2, Mail, MapPin, Navigation } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
@@ -16,6 +17,8 @@ import {
   UBN_NUMBER,
   WHATSAPP_URL,
 } from "@/data/dogs";
+import { contactSchema } from "@/data/contact";
+import { submitContactMessage } from "@/lib/contact.functions";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -42,13 +45,27 @@ const fieldClass =
   "w-full border-0 border-b border-input bg-transparent px-0 py-3 font-serif text-lg text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none";
 
 function Contact() {
-  const [form, setForm] = useState({ naam: "", email: "", bericht: "" });
+  const send = useServerFn(submitContactMessage);
+  const [form, setForm] = useState({ naam: "", email: "", bericht: "", website: "" });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [done, setDone] = useState(false);
 
-  function onSubmit(e: FormEvent) {
+  async function onSubmit(e: FormEvent) {
     e.preventDefault();
-    const subject = encodeURIComponent(`Aanvraag via website — ${form.naam}`);
-    const body = encodeURIComponent(`${form.bericht}\n\n${form.naam}\n${form.email}`);
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    setError(null);
+    const parsed = contactSchema.safeParse({ name: form.naam, email: form.email, message: form.bericht, website: form.website });
+    if (!parsed.success) return setError(parsed.error.issues[0]?.message ?? "Controleer je gegevens.");
+    setLoading(true);
+    try {
+      const res = await send({ data: parsed.data });
+      if (res.ok) setDone(true);
+      else setError(res.error);
+    } catch {
+      setError("Het versturen is niet gelukt. Probeer het later opnieuw of stuur ons een WhatsApp.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -87,26 +104,47 @@ function Contact() {
           </a>
         </div>
 
-        <form onSubmit={onSubmit} className="border border-border bg-card p-8 sm:p-12">
-          <h2 className="font-display text-2xl tracking-[0.12em] uppercase">Stuur een bericht</h2>
-          <div className="mt-8 space-y-8">
-            <label className="block">
-              <span className="eyebrow">Naam</span>
-              <input required maxLength={100} className={fieldClass} value={form.naam} onChange={(e) => setForm({ ...form, naam: e.target.value })} placeholder="Je naam" />
-            </label>
-            <label className="block">
-              <span className="eyebrow">E-mail</span>
-              <input required type="email" maxLength={255} className={fieldClass} value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="jij@voorbeeld.nl" />
-            </label>
-            <label className="block">
-              <span className="eyebrow">Bericht</span>
-              <textarea required rows={5} maxLength={2000} className={fieldClass} value={form.bericht} onChange={(e) => setForm({ ...form, bericht: e.target.value })} placeholder="Vertel ons iets over jezelf en je wensen…" />
-            </label>
+        {done ? (
+          <div role="status" className="animate-rise border border-primary/40 bg-card p-8 text-center sm:p-12">
+            <Check className="mx-auto size-10 text-primary" strokeWidth={1.25} />
+            <h2 className="mt-6 font-display text-2xl tracking-[0.12em] uppercase">Bedankt voor je bericht</h2>
+            <p className="mt-2 font-script text-4xl text-gold">we horen je graag</p>
+            <p className="mx-auto mt-6 max-w-md font-serif text-lg leading-relaxed text-muted-foreground">
+              We hebben je bericht goed ontvangen en nemen zo snel mogelijk contact met je op.
+            </p>
           </div>
-          <Button type="submit" variant="gold" size="xl" className="mt-10 w-full sm:w-auto">
-            Verstuur bericht
-          </Button>
-        </form>
+        ) : (
+          <form onSubmit={onSubmit} noValidate className="border border-border bg-card p-8 sm:p-12">
+            <h2 className="font-display text-2xl tracking-[0.12em] uppercase">Stuur een bericht</h2>
+            <div className="mt-8 space-y-8">
+              <label className="block">
+                <span className="eyebrow">Naam</span>
+                <input name="naam" required maxLength={100} autoComplete="name" className={fieldClass} value={form.naam} onChange={(e) => setForm({ ...form, naam: e.target.value })} placeholder="Je naam" />
+              </label>
+              <label className="block">
+                <span className="eyebrow">E-mail</span>
+                <input name="email" required type="email" maxLength={255} autoComplete="email" className={fieldClass} value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="jij@voorbeeld.nl" />
+              </label>
+              <label className="block">
+                <span className="eyebrow">Bericht</span>
+                <textarea name="bericht" required rows={5} maxLength={2000} className={fieldClass} value={form.bericht} onChange={(e) => setForm({ ...form, bericht: e.target.value })} placeholder="Vertel ons iets over jezelf en je wensen…" />
+              </label>
+            </div>
+            {/* Verborgen veld tegen spam */}
+            <div className="hidden" aria-hidden="true">
+              <input name="website" tabIndex={-1} autoComplete="off" value={form.website} onChange={(e) => setForm({ ...form, website: e.target.value })} />
+            </div>
+            <Button type="submit" variant="gold" size="xl" className="mt-10 w-full sm:w-auto" disabled={loading}>
+              {loading && <Loader2 className="animate-spin" />}
+              {loading ? "Bezig met versturen…" : "Verstuur bericht"}
+            </Button>
+            {error && (
+              <p role="alert" className="mt-4 font-serif text-lg text-destructive">
+                {error}
+              </p>
+            )}
+          </form>
+        )}
       </section>
 
       <section className="border-t border-border bg-card/40">

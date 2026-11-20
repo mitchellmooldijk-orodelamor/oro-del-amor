@@ -12,5 +12,7 @@
 - [x] Wachtlijst-vragenlijst met opslag van antwoorden (/wachtlijst)
 - [ ] Wacht op klant: e-mailmelding bij nieuwe aanmelding (eigen domein nodig)
 - [x] Het ras + verzorgingshulp gecontroleerd
-- [ ] Wacht op klant: echt e-mailadres (nu placeholder info@orodelamor.nl)
+- [x] Echt e-mailadres info@orodelamorpoms.nl
 - [x] Nieuw logo overal, Pomeranians gecentreerd, WhatsApp-glans
+- [x] Contactformulier slaat berichten op (werkt op elk apparaat)
+- [ ] Wacht op klant: e-mailmelding bij nieuw contactbericht (e-mail verzenden instellen nodig)
