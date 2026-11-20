@@ -14,5 +14,5 @@
 - [x] Het ras + verzorgingshulp gecontroleerd
 - [x] Echt e-mailadres info@orodelamorpoms.nl
 - [x] Nieuw logo overal, Pomeranians gecentreerd, WhatsApp-glans
-- [x] Contactformulier slaat berichten op (werkt op elk apparaat)
-- [ ] Wacht op klant: e-mailmelding bij nieuw contactbericht (e-mail verzenden instellen nodig)
+- [x] Contactformulier opent weer de mail-app (op verzoek)
+- [ ] Wacht op klant: berichten rechtstreeks naar info@orodelamorpoms.nl (betaald abonnement + domein koppelen nodig)

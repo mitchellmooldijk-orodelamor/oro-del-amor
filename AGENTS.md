@@ -36,4 +36,4 @@ use the editor.
 - Home news carousel items live in `src/data/news.ts` (newest first); no backend, so new posts are added there. Why: one place to post kennel updates.
 - Customer-supplied photos are CDN asset pointers (`src/assets/*.asset.json`); generated images are plain imports. Why: keeps large uploads out of the repo.
 - Waitlist questionnaire: fields and validation in `src/data/waitlist.ts` (shared by form and server); submissions are inserted server-side into `public.waitlist_applications` (RLS on, no visitor policies). Why: answers stay private and are never readable from the browser.
-- Contact form: validation in `src/data/contact.ts`; messages are inserted server-side into `public.contact_messages` (RLS on, no visitor policies), not sent via mailto. Why: mailto fails without a mail app and in the preview frame.
+- Contact form opens the visitor's mail app (mailto to CONTACT_EMAIL); nothing is stored. Why: owner wants messages in their inbox and app email sending is not set up.
