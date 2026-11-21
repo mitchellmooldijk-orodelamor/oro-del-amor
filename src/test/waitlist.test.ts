@@ -36,3 +36,15 @@ describe("wachtlijst-vragenlijst", () => {
     }
   });
 });
+
+describe("wachtlijst-mail", () => {
+  it("opens a mail to info@orodelamorpoms.nl with the answers", async () => {
+    const { buildWaitlistMailto } = await import("@/data/waitlist");
+    const { CONTACT_EMAIL } = await import("@/data/dogs");
+    const url = buildWaitlistMailto(waitlistSchema.parse(valid), CONTACT_EMAIL);
+    expect(url.startsWith("mailto:info@orodelamorpoms.nl?")).toBe(true);
+    const body = decodeURIComponent(url.split("&body=")[1] ?? "");
+    expect(body).toContain("Naam: Test Persoon");
+    expect(body).toContain("Waarom een Pomeranian: Omdat we dol zijn op het ras.");
+  });
+});
