@@ -1,7 +1,6 @@
-import logoAsset from "@/assets/oro-del-amor-logo-nieuw.png.asset.json";
-const logo = logoAsset.url;
-import lunaNachoImg from "@/assets/luna-nacho-kussen.jpg.asset.json";
-import lunaImg from "@/assets/luna-profiel-oro-del-amor.png.asset.json";
+import logo from "@/assets/oro-del-amor-logo-nieuw.png";
+import lunaNachoImg from "@/assets/luna-nacho-kussen.jpg";
+import lunaImg from "@/assets/luna-profiel-oro-del-amor.png";
 import puppies from "@/assets/puppies.jpg";
 
 export type NewsItem = {
@@ -42,7 +41,7 @@ export const news: NewsItem[] = [
     category: "Gezondheid",
     title: "Nacho en Luna getest",
     text: "Nacho en Luna zijn allebei getest op patella en SM/CM. Gezondheid staat bij ons altijd voorop.",
-    image: lunaNachoImg.url,
+    image: lunaNachoImg,
     imageAlt: "Luna en Nacho samen op een zacht kussen",
     link: { to: "/onze-honden", label: "Ontmoet onze honden" },
   },
@@ -51,7 +50,7 @@ export const news: NewsItem[] = [
     category: "Update",
     title: "Luna, uit Poms Jewels of my heart",
     text: "Luna is geboren op 18 oktober 2025 en komt uit kennel Poms Jewels of my heart. Ze heeft haar plekje in ons gezin helemaal gevonden.",
-    image: lunaImg.url,
+    image: lunaImg,
     imageAlt: "Luna, onze crèmekleurige Pomeranian",
   },
 ];

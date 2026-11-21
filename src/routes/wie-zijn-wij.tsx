@@ -4,8 +4,8 @@ import { Crown, Ornament } from "@/components/site/Ornament";
 import { Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TEUNTJEPLUIS_INSTAGRAM_HANDLE, TEUNTJEPLUIS_INSTAGRAM_URL } from "@/data/dogs";
-import gezinImg from "@/assets/gezin-mooldijk.jpg.asset.json";
-import ouderImg from "@/assets/mitchell-en-jill.jpg.asset.json";
+import gezinImg from "@/assets/gezin-mooldijk.jpg";
+import ouderImg from "@/assets/mitchell-en-jill.jpg";
 
 export const Route = createFileRoute("/wie-zijn-wij")({
   head: () => ({
@@ -51,7 +51,7 @@ function WieZijnWij() {
         <figure className="relative">
           <div className="absolute -inset-3 border border-primary/30" aria-hidden="true" />
           <img
-            src={gezinImg.url}
+            src={gezinImg}
             alt="Mitchell en Jill met hun zoon Chezz en dochter Romée"
             width={1200}
             height={1600}
@@ -91,7 +91,7 @@ function WieZijnWij() {
       <section className="bg-beige text-beige-foreground">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-24 md:grid-cols-2 md:gap-20">
           <img
-            src={ouderImg.url}
+            src={ouderImg}
             alt="Mitchell en Jill samen in de zon"
             loading="lazy"
             width={1440}

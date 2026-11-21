@@ -3,9 +3,9 @@ import type { ReactNode } from "react";
 import { PageHero } from "@/components/site/PageHero";
 import { Crown, Ornament } from "@/components/site/Ornament";
 import { Button } from "@/components/ui/button";
-import vinoImg from "@/assets/vino-pomeranian-zon.jpg.asset.json";
-import nachoImg from "@/assets/nacho-bloemen.jpg.asset.json";
-import lunaImg from "@/assets/luna-nacho-kussen.jpg.asset.json";
+import vinoImg from "@/assets/vino-pomeranian-zon.jpg";
+import nachoImg from "@/assets/nacho-bloemen.jpg";
+import lunaImg from "@/assets/luna-nacho-kussen.jpg";
 
 export const Route = createFileRoute("/over-ons")({
   head: () => ({
@@ -72,7 +72,7 @@ function OverOns() {
       <section className="mx-auto grid max-w-6xl items-start gap-12 px-5 py-20 md:grid-cols-[5fr_7fr] md:gap-16">
         <figure className="md:sticky md:top-28">
           <img
-            src={vinoImg.url}
+            src={vinoImg}
             alt="Vino, onze eerste Pomeranian, in de ochtendzon op een berijpt grasveld"
             loading="lazy"
             width={1440}
@@ -119,7 +119,7 @@ function OverOns() {
       {/* Nacho */}
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 pt-24 md:grid-cols-2 md:gap-20">
         <img
-          src={nachoImg.url}
+          src={nachoImg}
           alt="Nacho, onze black-tan Pomeranian, met een kanten kraagje bij een bos bloemen"
           loading="lazy"
           width={1440}
@@ -143,7 +143,7 @@ function OverOns() {
       {/* Luna */}
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-24 md:grid-cols-2 md:gap-20">
         <img
-          src={lunaImg.url}
+          src={lunaImg}
           alt="Luna en Nacho samen op een zacht kussen"
           loading="lazy"
           width={1440}

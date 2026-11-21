@@ -1,5 +1,5 @@
-import nachoImg from "@/assets/nacho-dekreu-profiel-oro-del-amor.png.asset.json";
-import lunaImg from "@/assets/luna-profiel-oro-del-amor.png.asset.json";
+import nachoImg from "@/assets/nacho-dekreu-profiel-oro-del-amor.png";
+import lunaImg from "@/assets/luna-profiel-oro-del-amor.png";
 
 export type Dog = {
   slug: string;
@@ -24,7 +24,7 @@ export const dogs: Dog[] = [
     color: "Black & tan",
     origin: "Corazón de la Vida",
     tagline: "Compact, kleine bouw — lief, speels karakter",
-    image: nachoImg.url,
+    image: nachoImg,
     facts: [
       { label: "Geslacht", value: "Reu" },
       { label: "Geboortedatum", value: "02-01-2026" },
@@ -44,7 +44,7 @@ export const dogs: Dog[] = [
     color: "Cream",
     origin: "Poms Jewels of my heart",
     tagline: "A sweet little girl with a big heart",
-    image: lunaImg.url,
+    image: lunaImg,
     facts: [
       { label: "Geslacht", value: "Teef" },
       { label: "Geboortedatum", value: "18-10-2025" },
