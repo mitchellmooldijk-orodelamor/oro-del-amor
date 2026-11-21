@@ -71,9 +71,9 @@ export const WHATSAPP_NUMBER = "31616191198";
 export const WHATSAPP_MESSAGE = "Hallo Mitchell en Jill, ik heb interesse in een Pomeranian pup van Oro Del Amor.";
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
-export const ADDRESS_STREET = "Mantaro 7";
-export const ADDRESS_CITY = "2911 JE Nieuwerkerk aan den IJssel";
-const addressQuery = encodeURIComponent(`${ADDRESS_STREET}, ${ADDRESS_CITY}`);
+/** Alleen de woonplaats wordt getoond; het exacte adres delen we pas na een afspraak. */
+export const ADDRESS_CITY = "Nieuwerkerk aan den IJssel";
+const addressQuery = encodeURIComponent(ADDRESS_CITY);
 export const MAPS_EMBED_URL = `https://www.google.com/maps?q=${addressQuery}&output=embed`;
 export const MAPS_DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${addressQuery}`;
 

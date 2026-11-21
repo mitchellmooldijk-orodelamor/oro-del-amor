@@ -8,9 +8,10 @@ describe("contact details", () => {
     expect(WHATSAPP_URL.startsWith("https://wa.me/31616191198?text=")).toBe(true);
   });
 
-  it("Google Maps route points to Mantaro 7, 2911 JE Nieuwerkerk aan den IJssel", () => {
+  it("Google Maps route points only to the town Nieuwerkerk aan den IJssel, not the street address", () => {
     const destination = new URL(MAPS_DIRECTIONS_URL).searchParams.get("destination");
-    expect(destination).toBe("Mantaro 7, 2911 JE Nieuwerkerk aan den IJssel");
+    expect(destination).toBe("Nieuwerkerk aan den IJssel");
+    expect(destination).not.toContain("Mantaro");
   });
 });
 

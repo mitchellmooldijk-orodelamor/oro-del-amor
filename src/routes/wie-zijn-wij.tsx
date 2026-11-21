@@ -67,6 +67,11 @@ function WieZijnWij() {
             Wow, 7 ja — onze honden rekenen we uiteraard mee. Wij zijn Mitchell en Jill en onze zoon Chezz en
             dochter Romée. En niet te vergeten onze drie hondenkinderen Vino, Nacho en Luna.
           </p>
+          <p className="mt-4 font-serif text-xl leading-relaxed text-foreground/85">
+            Onze honden zijn echte huishonden. Ze wonen niet in een kennelruimte, maar leven midden in ons gezin: in
+            de woonkamer, tussen de kinderen en overal waar wij zijn. Zo groeien ook onze pups op — gewend aan
+            geluiden, knuffels en het gewone, gezellige gezinsleven.
+          </p>
 
           <ol className="mt-10 grid grid-cols-2 gap-px border border-border bg-border sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4">
             {gezin.map((lid, i) => (

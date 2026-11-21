@@ -6,7 +6,6 @@ import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
 import {
   ADDRESS_CITY,
-  ADDRESS_STREET,
   CONTACT_EMAIL,
   INSTAGRAM_HANDLE,
   INSTAGRAM_URL,
@@ -116,8 +115,6 @@ function Contact() {
             <p className="eyebrow mt-5">Locatie</p>
             <h2 className="mt-3 font-display text-2xl tracking-[0.12em] uppercase">Oro Del Amor</h2>
             <address className="mt-4 font-serif text-2xl leading-snug not-italic">
-              {ADDRESS_STREET}
-              <br />
               {ADDRESS_CITY}
             </address>
             <p className="mt-4 font-display text-xs tracking-[0.3em] text-muted-foreground uppercase">
@@ -135,7 +132,7 @@ function Contact() {
           </div>
           <div className="relative min-h-80 border border-border">
             <iframe
-              title={`Kaart: ${ADDRESS_STREET}, ${ADDRESS_CITY}`}
+              title={`Kaart: ${ADDRESS_CITY}`}
               src={MAPS_EMBED_URL}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
