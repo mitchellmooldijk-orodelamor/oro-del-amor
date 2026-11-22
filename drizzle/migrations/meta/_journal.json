@@ -15,6 +15,13 @@
       "when": 1795156897847,
       "tag": "0001_create_contact_messages",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1795335436198,
+      "tag": "0002_waitlist_public_insert",
+      "breakpoints": true
     }
   ]
 }

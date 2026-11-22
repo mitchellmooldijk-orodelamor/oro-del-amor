@@ -48,3 +48,14 @@ describe("wachtlijst-pdf", () => {
     expect(waitlistPdfFilename(data)).toBe("aanmelding-wachtlijst-oro-del-amor-test-persoon.pdf");
   });
 });
+
+describe("wachtlijst-opslag", () => {
+  it("stores a new application with status nieuw and empty optionals as null", async () => {
+    const { toWaitlistRow } = await import("@/lib/waitlist-save");
+    const row = toWaitlistRow(waitlistSchema.parse({ ...valid, email: "Test@Example.com", phone: "" }));
+    expect(row.status).toBe("nieuw");
+    expect(row.consent).toBe(true);
+    expect(row.email).toBe("test@example.com");
+    expect(row.phone).toBeNull();
+  });
+});

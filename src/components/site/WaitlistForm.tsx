@@ -1,4 +1,3 @@
-import { useServerFn } from "@tanstack/react-start";
 import { Check, Download, Loader2 } from "lucide-react";
 import { useState, type FormEvent, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
@@ -11,7 +10,7 @@ import {
   sexOptions,
   waitlistSchema,
 } from "@/data/waitlist";
-import { submitWaitlist } from "@/lib/waitlist.functions";
+import { saveWaitlist } from "@/lib/waitlist-save";
 import { buildWaitlistPdf, downloadBlob } from "@/lib/waitlist-pdf";
 import { cn } from "@/lib/utils";
 
@@ -70,7 +69,6 @@ function YesNo({ name, value, onChange }: { name: string; value: boolean | null;
 }
 
 export function WaitlistForm() {
-  const send = useServerFn(submitWaitlist);
   const [hasGarden, setHasGarden] = useState<boolean | null>(null);
   const [puppyCourse, setPuppyCourse] = useState<boolean | null>(null);
   const [loading, setLoading] = useState(false);
@@ -111,7 +109,7 @@ export function WaitlistForm() {
 
     setLoading(true);
     try {
-      await send({ data: parsed.data });
+      await saveWaitlist(parsed.data);
     } catch {
       setLoading(false);
       return setError("Versturen lukte niet. Probeer het opnieuw of stuur ons een WhatsApp.");
