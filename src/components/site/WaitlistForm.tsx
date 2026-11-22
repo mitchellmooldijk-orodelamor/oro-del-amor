@@ -1,10 +1,10 @@
 import { useServerFn } from "@tanstack/react-start";
-import { Check, Loader2 } from "lucide-react";
+import { Check, Download, Loader2 } from "lucide-react";
 import { useState, type FormEvent, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { CONTACT_EMAIL, WHATSAPP_URL } from "@/data/dogs";
 import {
-  buildWaitlistMailto,
+  waitlistPdfFilename,
   experienceOptions,
   hoursAloneOptions,
   housingOptions,
@@ -12,6 +12,7 @@ import {
   waitlistSchema,
 } from "@/data/waitlist";
 import { submitWaitlist } from "@/lib/waitlist.functions";
+import { buildWaitlistPdf, downloadBlob } from "@/lib/waitlist-pdf";
 import { cn } from "@/lib/utils";
 
 const field =
@@ -74,7 +75,7 @@ export function WaitlistForm() {
   const [puppyCourse, setPuppyCourse] = useState<boolean | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [mailto, setMailto] = useState<string | null>(null);
+  const [pdf, setPdf] = useState<{ blob: Blob; name: string } | null>(null);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -108,39 +109,48 @@ export function WaitlistForm() {
     // Spam-bot: niets doen.
     if (parsed.data.website) return;
 
-    // Direct de mail-app openen (binnen de klik, zodat telefoons het toestaan).
-    const url = buildWaitlistMailto(parsed.data, CONTACT_EMAIL);
-    window.location.href = url;
-
-    // Daarnaast een reservekopie bewaren; de mail blijft de hoofdroute.
     setLoading(true);
     try {
       await send({ data: parsed.data });
     } catch {
-      // Opslaan mislukt: de mail is al geopend, dus de aanmelding gaat niet verloren.
+      setLoading(false);
+      return setError("Versturen lukte niet. Probeer het opnieuw of stuur ons een WhatsApp.");
+    }
+    try {
+      const blob = await buildWaitlistPdf(parsed.data);
+      const name = waitlistPdfFilename(parsed.data);
+      setPdf({ blob, name });
+      try {
+        downloadBlob(blob, name);
+      } catch {
+        // Automatisch downloaden geblokkeerd: de knop op het bedankscherm werkt altijd.
+      }
+    } catch {
+      setPdf({ blob: new Blob(), name: "" });
     } finally {
       setLoading(false);
-      setMailto(url);
       requestAnimationFrame(() => document.getElementById("aanmelding")?.scrollIntoView({ behavior: "smooth", block: "start" }));
     }
   }
 
-  if (mailto) {
+  if (pdf) {
     return (
       <div role="status" className="animate-rise border border-primary/40 bg-card p-10 text-center sm:p-14">
         <Check className="mx-auto size-10 text-primary" strokeWidth={1.25} />
         <h3 className="mt-6 font-display text-2xl tracking-[0.1em] uppercase">Bedankt voor je aanmelding</h3>
         <p className="mt-2 font-script text-4xl text-gold">we lezen het met liefde</p>
         <p className="mx-auto mt-6 max-w-xl font-serif text-xl leading-relaxed text-muted-foreground">
-          Je mail-app is geopend met al je antwoorden erin. Druk daar nog op <strong className="text-foreground">verzenden</strong>, dan
-          komt je aanmelding bij Mitchell en Jill binnen. Zij lezen hem persoonlijk door en nemen contact met je op.
+          Je aanmelding is binnengekomen bij Mitchell en Jill. Zij lezen hem persoonlijk door en nemen contact met je op. Je
+          antwoorden staan ook in een PDF die je kunt bewaren.
         </p>
         <div className="mt-8 flex flex-col items-center gap-4">
-          <Button asChild variant="gold" size="xl">
-            <a href={mailto}>Mail-app opnieuw openen</a>
-          </Button>
+          {pdf.name && (
+            <Button type="button" variant="gold" size="xl" onClick={() => downloadBlob(pdf.blob, pdf.name)}>
+              <Download /> Download je aanmelding (PDF)
+            </Button>
+          )}
           <p className="max-w-xl font-serif text-base text-muted-foreground">
-            Gaat er geen mail-app open? Stuur je aanmelding dan naar{" "}
+            Vragen over je aanmelding? Mail naar{" "}
             <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary underline-offset-4 hover:underline">
               {CONTACT_EMAIL}
             </a>{" "}
@@ -260,7 +270,7 @@ export function WaitlistForm() {
       <div className="flex flex-col items-center gap-4">
         <Button type="submit" variant="gold" size="xl" disabled={loading}>
           {loading && <Loader2 className="animate-spin" />}
-          {loading ? "Bezig met versturen…" : "Aanmelding versturen via mail"}
+          {loading ? "Bezig met versturen…" : "Aanmelding versturen"}
         </Button>
         {error && (
           <p role="alert" className="text-center font-serif text-lg text-destructive">

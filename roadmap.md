@@ -10,7 +10,8 @@
 - [x] Aparte FAQ-pagina in menu en footer
 - [x] Meelopende WhatsApp-knop op elke pagina
 - [x] Wachtlijst-vragenlijst met opslag van antwoorden (/wachtlijst)
-- [ ] Wacht op klant: e-mailmelding bij nieuwe aanmelding (eigen domein nodig)
+- [x] Wachtlijst: na versturen PDF van de aanmelding downloaden (i.p.v. mail-app)
+- [ ] Wacht op klant: e-mail met PDF-bijlage via Resend (DKIM nog pending)
 - [x] Het ras + verzorgingshulp gecontroleerd
 - [x] Echt e-mailadres info@orodelamorpoms.nl
 - [x] Nieuw logo overal, Pomeranians gecentreerd, WhatsApp-glans

@@ -37,14 +37,14 @@ describe("wachtlijst-vragenlijst", () => {
   });
 });
 
-describe("wachtlijst-mail", () => {
-  it("opens a mail to info@orodelamorpoms.nl with the answers", async () => {
-    const { buildWaitlistMailto } = await import("@/data/waitlist");
-    const { CONTACT_EMAIL } = await import("@/data/dogs");
-    const url = buildWaitlistMailto(waitlistSchema.parse(valid), CONTACT_EMAIL);
-    expect(url.startsWith("mailto:info@orodelamorpoms.nl?")).toBe(true);
-    const body = decodeURIComponent(url.split("&body=")[1] ?? "");
-    expect(body).toContain("Naam: Test Persoon");
-    expect(body).toContain("Waarom een Pomeranian: Omdat we dol zijn op het ras.");
+describe("wachtlijst-pdf", () => {
+  it("puts every answer in the PDF sections", async () => {
+    const { waitlistSections, waitlistPdfFilename } = await import("@/data/waitlist");
+    const data = waitlistSchema.parse(valid);
+    const rows = Object.fromEntries(waitlistSections(data).flatMap((s) => s.rows));
+    expect(rows["Naam"]).toBe("Test Persoon");
+    expect(rows["Waarom een Pomeranian"]).toBe("Omdat we dol zijn op het ras.");
+    expect(rows["Tuin"]).toBe("Ja");
+    expect(waitlistPdfFilename(data)).toBe("aanmelding-wachtlijst-oro-del-amor-test-persoon.pdf");
   });
 });

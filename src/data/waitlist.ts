@@ -47,36 +47,29 @@ export type WaitlistInput = z.infer<typeof waitlistSchema>;
 const yesNo = (v: boolean) => (v ? "Ja" : "Nee");
 const orDash = (v: string | undefined) => (v && v.trim() ? v.trim() : "—");
 
-/** Mail met alle antwoorden, die de mail-app van de bezoeker opent (zoals het contactformulier). */
-export function buildWaitlistMailto(data: WaitlistInput, to: string): string {
-  const lines = [
-    "Aanmelding wachtlijst Oro Del Amor",
-    "",
-    "OVER MIJ",
-    `Naam: ${data.fullName}`,
-    `Woonplaats: ${data.city}`,
-    `E-mailadres: ${data.email}`,
-    `Telefoon: ${orDash(data.phone)}`,
-    "",
-    "WOONSITUATIE",
-    `Type woning: ${data.housing}`,
-    `Tuin: ${yesNo(data.hasGarden)}`,
-    `Wie wonen er in huis: ${data.household}`,
-    `Andere huisdieren: ${orDash(data.otherPets)}`,
-    "",
-    "LEEFRITME",
-    `Pup alleen thuis: ${data.hoursAlone}`,
-    `Een gewone dag: ${orDash(data.dailyRhythm)}`,
-    "",
-    "ERVARING & WENSEN",
-    `Ervaring met honden: ${data.experience}`,
-    `Voorkeur reu of teef: ${data.sexPreference}`,
-    `Voorkeur kleur: ${orDash(data.colorPreference)}`,
-    `Wanneer een pup: ${orDash(data.timeframe)}`,
-    `Waarom een Pomeranian: ${data.motivation}`,
-    `Puppycursus volgen: ${yesNo(data.puppyCourse)}`,
+export type WaitlistSection = { title: string; rows: [string, string][] };
+
+/** Alle antwoorden per onderdeel; gebruikt voor de PDF. */
+export function waitlistSections(data: WaitlistInput): WaitlistSection[] {
+  return [
+    { title: "Over mij", rows: [["Naam", data.fullName], ["Woonplaats", data.city], ["E-mailadres", data.email], ["Telefoon", orDash(data.phone)]] },
+    { title: "Woonsituatie", rows: [["Type woning", data.housing], ["Tuin", yesNo(data.hasGarden)], ["Wie wonen er in huis", data.household], ["Andere huisdieren", orDash(data.otherPets)]] },
+    { title: "Leefritme", rows: [["Pup alleen thuis", data.hoursAlone], ["Een gewone dag", orDash(data.dailyRhythm)]] },
+    {
+      title: "Ervaring & wensen",
+      rows: [
+        ["Ervaring met honden", data.experience],
+        ["Voorkeur reu of teef", data.sexPreference],
+        ["Voorkeur kleur", orDash(data.colorPreference)],
+        ["Wanneer een pup", orDash(data.timeframe)],
+        ["Waarom een Pomeranian", data.motivation],
+        ["Puppycursus volgen", yesNo(data.puppyCourse)],
+      ],
+    },
   ];
-  const subject = encodeURIComponent(`Aanmelding wachtlijst — ${data.fullName}`);
-  const body = encodeURIComponent(lines.join("\n"));
-  return `mailto:${to}?subject=${subject}&body=${body}`;
+}
+
+export function waitlistPdfFilename(data: WaitlistInput): string {
+  const slug = data.fullName.normalize("NFD").replace(/[^A-Za-z0-9]+/g, "-").replace(/^-|-$/g, "").toLowerCase() || "aanmelding";
+  return `aanmelding-wachtlijst-oro-del-amor-${slug}.pdf`;
 }
