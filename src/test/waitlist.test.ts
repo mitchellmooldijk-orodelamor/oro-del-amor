@@ -13,6 +13,11 @@ const valid = {
   sexPreference: "Geen voorkeur",
   motivation: "Omdat we dol zijn op het ras.",
   puppyCourse: true,
+  petSitter: "Opa en oma passen op.",
+  careCosts: "Trimmen, borstels en een verzekering.",
+  pedigreeWhy: "Gezondheid en rastypische eigenschappen.",
+  contractAware: true,
+  keepContact: true,
   consent: true,
 };
 
@@ -57,5 +62,16 @@ describe("wachtlijst-opslag", () => {
     expect(row.consent).toBe(true);
     expect(row.email).toBe("test@example.com");
     expect(row.phone).toBeNull();
+  });
+
+  it("requires the new questions about oppas, kosten, stamboom, contract and contact", () => {
+    for (const key of ["petSitter", "careCosts", "pedigreeWhy", "contractAware", "keepContact"] as const) {
+      const { [key]: _omit, ...rest } = valid;
+      expect(waitlistSchema.safeParse(rest).success, key).toBe(false);
+    }
+  });
+
+  it("keeps the reason for reu/teef optional", () => {
+    expect(waitlistSchema.safeParse({ ...valid, sexReason: "" }).success).toBe(true);
   });
 });

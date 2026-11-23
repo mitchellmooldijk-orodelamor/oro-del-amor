@@ -24,6 +24,12 @@ export function toWaitlistRow(data: WaitlistInput) {
     timeframe: empty(data.timeframe),
     motivation: data.motivation.trim(),
     puppy_course: data.puppyCourse,
+    sex_reason: empty(data.sexReason),
+    pet_sitter: data.petSitter.trim(),
+    care_costs: data.careCosts.trim(),
+    pedigree_why: data.pedigreeWhy.trim(),
+    contract_aware: data.contractAware,
+    keep_contact: data.keepContact,
     consent: data.consent,
     status: "nieuw",
   };

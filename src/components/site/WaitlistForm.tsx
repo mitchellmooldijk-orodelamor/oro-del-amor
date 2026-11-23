@@ -11,7 +11,7 @@ import {
   waitlistSchema,
 } from "@/data/waitlist";
 import { saveWaitlist } from "@/lib/waitlist-save";
-import { buildWaitlistPdf, downloadBlob } from "@/lib/waitlist-pdf";
+import { buildWaitlistPdf, downloadBlob, mailWaitlistPdf } from "@/lib/waitlist-pdf";
 import { cn } from "@/lib/utils";
 
 const field =
@@ -71,6 +71,8 @@ function YesNo({ name, value, onChange }: { name: string; value: boolean | null;
 export function WaitlistForm() {
   const [hasGarden, setHasGarden] = useState<boolean | null>(null);
   const [puppyCourse, setPuppyCourse] = useState<boolean | null>(null);
+  const [contractAware, setContractAware] = useState<boolean | null>(null);
+  const [keepContact, setKeepContact] = useState<boolean | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [pdf, setPdf] = useState<{ blob: Blob; name: string } | null>(null);
@@ -82,6 +84,8 @@ export function WaitlistForm() {
     const s = (k: string) => String(fd.get(k) ?? "");
     if (hasGarden === null) return setError("Geef aan of je een tuin hebt.");
     if (puppyCourse === null) return setError("Geef aan of je een puppycursus wilt volgen.");
+    if (contractAware === null) return setError("Geef aan of je je bewust bent van het bindende koopcontract.");
+    if (keepContact === null) return setError("Geef aan of je bereid bent contact te houden.");
     const parsed = waitlistSchema.safeParse({
       fullName: s("fullName"),
       email: s("email"),
@@ -95,6 +99,12 @@ export function WaitlistForm() {
       dailyRhythm: s("dailyRhythm"),
       experience: s("experience"),
       sexPreference: s("sexPreference") || "Geen voorkeur",
+      sexReason: s("sexReason"),
+      petSitter: s("petSitter"),
+      careCosts: s("careCosts"),
+      pedigreeWhy: s("pedigreeWhy"),
+      contractAware,
+      keepContact,
       colorPreference: s("colorPreference"),
       timeframe: s("timeframe"),
       motivation: s("motivation"),
@@ -118,6 +128,7 @@ export function WaitlistForm() {
       const blob = await buildWaitlistPdf(parsed.data);
       const name = waitlistPdfFilename(parsed.data);
       setPdf({ blob, name });
+      void mailWaitlistPdf(blob, name, parsed.data);
       try {
         downloadBlob(blob, name);
       } catch {
@@ -218,6 +229,9 @@ export function WaitlistForm() {
         <Field label="Hoe ziet een gewone dag bij jullie eruit? (optioneel)" hint="Werk, school, wandelmomenten en weekenden." className="sm:col-span-2">
           <textarea name="dailyRhythm" maxLength={800} rows={3} className={cn(field, "py-3")} />
         </Field>
+        <Field label="Is er indien nodig oppas voor je pup, en waar gaat de pup heen als jullie op vakantie gaan? *" className="sm:col-span-2">
+          <textarea name="petSitter" required maxLength={1000} rows={3} className={cn(field, "py-3")} />
+        </Field>
       </Step>
 
       <Step n="IV" title="Ervaring & wensen">
@@ -238,6 +252,9 @@ export function WaitlistForm() {
             ))}
           </select>
         </Field>
+        <Field label="Waarom is je voorkeur voor reu of teef belangrijk voor je, en hoe zwaar weegt dit mee?" hint="Geen voorkeur? Dan mag je dit leeg laten." className="sm:col-span-2">
+          <textarea name="sexReason" maxLength={1000} rows={2} className={cn(field, "py-3")} />
+        </Field>
         <Field label="Voorkeur kleur (optioneel)">
           <input name="colorPreference" maxLength={100} placeholder="Bijvoorbeeld cream of black & tan" className={cn(field, "h-12")} />
         </Field>
@@ -250,6 +267,23 @@ export function WaitlistForm() {
         <div className="sm:col-span-2">
           <span className={labelText}>Wil je met je pup een puppycursus volgen? *</span>
           <YesNo name="puppyCourse" value={puppyCourse} onChange={setPuppyCourse} />
+        </div>
+      </Step>
+
+      <Step n="V" title="Verzorging & afspraken">
+        <Field label="Weet je welke kosten er kunnen komen kijken bij de vachtverzorging en verzorging van dit ras? En ben je bekend met een ziektekostenverzekering voor honden? *" className="sm:col-span-2">
+          <textarea name="careCosts" required maxLength={1500} rows={3} className={cn(field, "py-3")} />
+        </Field>
+        <Field label="Onze pups worden gefokt volgens de rasstandaard van de Nederlandse Keeshonden Club (NKC), alleen met honden met een FCI-stamboom die getest en goedgekeurd zijn voor de fok. Weet je waarom dit zo belangrijk is? *" className="sm:col-span-2">
+          <textarea name="pedigreeWhy" required maxLength={1500} rows={3} className={cn(field, "py-3")} />
+        </Field>
+        <div className="sm:col-span-2">
+          <span className={labelText}>Onze pups gaan naar hun nieuwe eigenaar na het tekenen van een koopcontract met duidelijke afspraken. Realiseer je je dat dit een bindend contract tussen beide partijen is? *</span>
+          <YesNo name="contractAware" value={contractAware} onChange={setContractAware} />
+        </div>
+        <div className="sm:col-span-2">
+          <span className={labelText}>Wij houden graag contact nadat de pup geplaatst is. Ben je daartoe bereid? *</span>
+          <YesNo name="keepContact" value={keepContact} onChange={setKeepContact} />
         </div>
       </Step>
 

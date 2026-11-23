@@ -11,7 +11,9 @@
 - [x] Meelopende WhatsApp-knop op elke pagina
 - [x] Wachtlijst-vragenlijst met opslag van antwoorden (/wachtlijst)
 - [x] Wachtlijst: na versturen PDF van de aanmelding downloaden (i.p.v. mail-app)
-- [ ] Wacht op klant: e-mail met PDF-bijlage via Resend (DKIM nog pending)
+- [x] Wachtlijst: PDF automatisch mailen naar info@ via Strato (werkt alleen op orodelamorpoms.nl)
+- [x] Pups: aanmeldknop bovenin, vragenlijst op de pagina
+- [x] Wachtlijst: 6 extra vragen (reu/teef reden, kosten, oppas, stamboom, contract, contact)
 - [x] Het ras + verzorgingshulp gecontroleerd
 - [x] Echt e-mailadres info@orodelamorpoms.nl
 - [x] Nieuw logo overal, Pomeranians gecentreerd, WhatsApp-glans

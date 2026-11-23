@@ -113,3 +113,23 @@ export function downloadBlob(blob: Blob, filename: string) {
   a.remove();
   setTimeout(() => URL.revokeObjectURL(url), 30_000);
 }
+
+/** Stuurt de PDF als bijlage naar de kennel (Netlify-functie met Strato-mail). Mislukken is stil: de aanmelding is al opgeslagen. */
+export async function mailWaitlistPdf(blob: Blob, filename: string, data: WaitlistInput): Promise<boolean> {
+  try {
+    const buf = new Uint8Array(await blob.arrayBuffer());
+    let bin = "";
+    for (let i = 0; i < buf.length; i += 0x8000) bin += String.fromCharCode(...buf.subarray(i, i + 0x8000));
+    const text = waitlistSections(data)
+      .map((s) => `${s.title.toUpperCase()}\n${s.rows.map(([l, v]) => `${l}: ${v}`).join("\n")}`)
+      .join("\n\n");
+    const res = await fetch("/.netlify/functions/waitlist-mail", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ name: data.fullName, email: data.email, filename, pdf: btoa(bin), text }),
+    });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}

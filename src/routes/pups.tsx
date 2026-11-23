@@ -3,6 +3,7 @@ import { Check } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { SectionHeading } from "@/components/site/Ornament";
 import { Button } from "@/components/ui/button";
+import { WaitlistForm } from "@/components/site/WaitlistForm";
 import puppies from "@/assets/puppies.jpg";
 
 export const Route = createFileRoute("/pups")({
@@ -51,6 +52,11 @@ function Pups() {
         script="jouw gouden mandje"
         intro="Momenteel zijn er geen pups beschikbaar. Schrijf je in voor de wachtlijst en wees als eerste op de hoogte van een nieuw nestje."
       />
+      <div className="flex justify-center border-b border-border px-5 py-10">
+        <Button asChild variant="gold" size="xl">
+          <a href="#aanmelding">Aanmelden voor de wachtlijst</a>
+        </Button>
+      </div>
 
       <section className="mx-auto max-w-6xl px-5 py-24">
         <SectionHeading eyebrow="Onze werkwijze" title="Van eerste contact tot thuis" />
@@ -100,14 +106,14 @@ function Pups() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl border-t border-border px-5 py-24 text-center">
-        <h2 className="font-display text-3xl tracking-[0.08em] uppercase">Op de wachtlijst?</h2>
-        <p className="mt-4 font-serif text-xl text-muted-foreground">
-          Vul onze vragenlijst in — we lezen je antwoorden persoonlijk en nemen contact met je op.
-        </p>
-        <Button asChild variant="gold" size="xl" className="mt-10">
-          <Link to="/wachtlijst">Aanmelden</Link>
-        </Button>
+      <section id="aanmelding" className="mx-auto max-w-4xl scroll-mt-28 border-t border-border px-5 py-24">
+        <div className="mb-12 text-center">
+          <h2 className="font-display text-3xl tracking-[0.08em] uppercase">Aanmelden voor de wachtlijst</h2>
+          <p className="mt-4 font-serif text-xl text-muted-foreground">
+            Vul onze vragenlijst in — we lezen je antwoorden persoonlijk en nemen contact met je op.
+          </p>
+        </div>
+        <WaitlistForm />
       </section>
     </>
   );

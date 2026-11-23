@@ -40,9 +40,11 @@ export type Database = {
       }
       waitlist_applications: {
         Row: {
+          care_costs: string | null
           city: string
           color_preference: string | null
           consent: boolean
+          contract_aware: boolean | null
           created_at: string
           daily_rhythm: string | null
           email: string
@@ -53,18 +55,24 @@ export type Database = {
           household: string
           housing: string
           id: string
+          keep_contact: boolean | null
           motivation: string
           other_pets: string | null
+          pedigree_why: string | null
+          pet_sitter: string | null
           phone: string | null
           puppy_course: boolean
           sex_preference: string
+          sex_reason: string | null
           status: string
           timeframe: string | null
         }
         Insert: {
+          care_costs?: string | null
           city: string
           color_preference?: string | null
           consent?: boolean
+          contract_aware?: boolean | null
           created_at?: string
           daily_rhythm?: string | null
           email: string
@@ -75,18 +83,24 @@ export type Database = {
           household: string
           housing: string
           id?: string
+          keep_contact?: boolean | null
           motivation: string
           other_pets?: string | null
+          pedigree_why?: string | null
+          pet_sitter?: string | null
           phone?: string | null
           puppy_course?: boolean
           sex_preference?: string
+          sex_reason?: string | null
           status?: string
           timeframe?: string | null
         }
         Update: {
+          care_costs?: string | null
           city?: string
           color_preference?: string | null
           consent?: boolean
+          contract_aware?: boolean | null
           created_at?: string
           daily_rhythm?: string | null
           email?: string
@@ -97,11 +111,15 @@ export type Database = {
           household?: string
           housing?: string
           id?: string
+          keep_contact?: boolean | null
           motivation?: string
           other_pets?: string | null
+          pedigree_why?: string | null
+          pet_sitter?: string | null
           phone?: string | null
           puppy_course?: boolean
           sex_preference?: string
+          sex_reason?: string | null
           status?: string
           timeframe?: string | null
         }

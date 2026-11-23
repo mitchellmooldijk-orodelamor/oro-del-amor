@@ -35,6 +35,6 @@ use the editor.
 - FAQ content lives in `src/data/faq.ts` and is rendered on `/faq` (anchors `#faq`, `#dekreu`); other pages link there. Why: one FAQ page reachable from the menu.
 - Home news carousel items live in `src/data/news.ts` (newest first); no backend, so new posts are added there. Why: one place to post kennel updates.
 - All images (customer photos, logo, generated) are real files in `src/assets/` imported directly; no `.asset.json` pointers or `/__l5e/assets-v1/` URLs. Why: owner wants every image to live in the project itself.
-- Waitlist submit stores the answers server-side, then builds a PDF in the browser (pdf-lib) that the visitor downloads; no mail is sent. Why: no mail sending set up yet.
+- Waitlist submit stores the answers, builds a PDF in the browser (pdf-lib) for download, and posts it to the Netlify function `netlify/functions/waitlist-mail.mjs` (nodemailer over Strato SMTP, env vars in Netlify, fixed recipient). Why: live site is hosted on Netlify; Lovable preview cannot send these mails.
 - Waitlist questionnaire: fields and validation in `src/data/waitlist.ts` (shared by form and server); submissions are inserted server-side into `public.waitlist_applications` (RLS on, no visitor policies). Why: answers stay private and are never readable from the browser.
 - Contact form opens the visitor's mail app (mailto to CONTACT_EMAIL); nothing is stored. Why: owner wants messages in their inbox and app email sending is not set up.

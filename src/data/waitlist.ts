@@ -31,12 +31,18 @@ export const waitlistSchema = z.object({
   otherPets: optional(300),
   hoursAlone: z.enum(hoursAloneOptions, { errorMap: () => ({ message: "Kies hoe lang de pup alleen is." }) }),
   dailyRhythm: optional(800),
+  petSitter: required("wie er oppast en waar de pup heen gaat bij vakantie", 1000),
   experience: z.enum(experienceOptions, { errorMap: () => ({ message: "Kies je ervaring met honden." }) }),
   sexPreference: z.enum(sexOptions),
+  sexReason: optional(1000),
   colorPreference: optional(100),
   timeframe: optional(100),
   motivation: required("waarom je voor een Pomeranian kiest", 2000),
   puppyCourse: z.boolean(),
+  careCosts: required("wat je weet over de kosten van verzorging en verzekering", 1500),
+  pedigreeWhy: required("waarom fokken met FCI-stamboom en geteste ouders belangrijk is", 1500),
+  contractAware: z.boolean(),
+  keepContact: z.boolean(),
   consent: z.literal(true, { errorMap: () => ({ message: "Geef toestemming om je gegevens te bewaren." }) }),
   /** Verborgen veld tegen spam; mensen laten het leeg. */
   website: z.string().max(200).optional(),
@@ -54,16 +60,26 @@ export function waitlistSections(data: WaitlistInput): WaitlistSection[] {
   return [
     { title: "Over mij", rows: [["Naam", data.fullName], ["Woonplaats", data.city], ["E-mailadres", data.email], ["Telefoon", orDash(data.phone)]] },
     { title: "Woonsituatie", rows: [["Type woning", data.housing], ["Tuin", yesNo(data.hasGarden)], ["Wie wonen er in huis", data.household], ["Andere huisdieren", orDash(data.otherPets)]] },
-    { title: "Leefritme", rows: [["Pup alleen thuis", data.hoursAlone], ["Een gewone dag", orDash(data.dailyRhythm)]] },
+    { title: "Leefritme", rows: [["Pup alleen thuis", data.hoursAlone], ["Een gewone dag", orDash(data.dailyRhythm)], ["Oppas en vakantie", data.petSitter]] },
     {
       title: "Ervaring & wensen",
       rows: [
         ["Ervaring met honden", data.experience],
         ["Voorkeur reu of teef", data.sexPreference],
+        ["Waarom die voorkeur, hoe zwaar weegt het", orDash(data.sexReason)],
         ["Voorkeur kleur", orDash(data.colorPreference)],
         ["Wanneer een pup", orDash(data.timeframe)],
         ["Waarom een Pomeranian", data.motivation],
         ["Puppycursus volgen", yesNo(data.puppyCourse)],
+      ],
+    },
+    {
+      title: "Verzorging & afspraken",
+      rows: [
+        ["Kosten verzorging en verzekering", data.careCosts],
+        ["Waarom NKC-rasstandaard en FCI-stamboom", data.pedigreeWhy],
+        ["Bewust van bindend koopcontract", yesNo(data.contractAware)],
+        ["Bereid contact te houden", yesNo(data.keepContact)],
       ],
     },
   ];
