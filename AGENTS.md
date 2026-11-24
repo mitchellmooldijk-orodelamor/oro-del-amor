@@ -38,3 +38,4 @@ use the editor.
 - Waitlist submit stores the answers, builds a PDF in the browser (pdf-lib) for download, and posts it to the Netlify function `netlify/functions/waitlist-mail.mjs` (nodemailer over Strato SMTP, env vars in Netlify, fixed recipient). Why: live site is hosted on Netlify; Lovable preview cannot send these mails.
 - Waitlist questionnaire: fields and validation in `src/data/waitlist.ts` (shared by form and server); submissions are inserted server-side into `public.waitlist_applications` (RLS on, no visitor policies). Why: answers stay private and are never readable from the browser.
 - Contact form opens the visitor's mail app (mailto to CONTACT_EMAIL); nothing is stored. Why: owner wants messages in their inbox and app email sending is not set up.
+- The waitlist PDF embeds the lightweight `src/assets/oro-del-amor-logo-pdf.jpg`, never the full-size PNG logo. Why: the PNG pushes the PDF past the mail function's size limit.

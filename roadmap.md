@@ -18,4 +18,5 @@
 - [x] Echt e-mailadres info@orodelamorpoms.nl
 - [x] Nieuw logo overal, Pomeranians gecentreerd, WhatsApp-glans
 - [x] Contactformulier opent weer de mail-app (op verzoek)
+- [x] Wachtlijst-PDF: voorblad met groot logo en introductie, vragen vanaf pagina 2, dankblok met groet en telefoonnummer
 - [ ] Wacht op klant: berichten rechtstreeks naar info@orodelamorpoms.nl (betaald abonnement + domein koppelen nodig)

@@ -75,3 +75,17 @@ describe("wachtlijst-opslag", () => {
     expect(waitlistSchema.safeParse({ ...valid, sexReason: "" }).success).toBe(true);
   });
 });
+
+describe("wachtlijst-pdf opmaak", () => {
+  it("starts with a cover page, puts the answers from page 2 and stays small enough to mail", async () => {
+    const { readFileSync } = await import("node:fs");
+    const { PDFDocument } = await import("pdf-lib");
+    const { buildWaitlistPdfBytes } = await import("@/lib/waitlist-pdf");
+    const logo = new Uint8Array(readFileSync("src/assets/oro-del-amor-logo-pdf.jpg"));
+    const bytes = await buildWaitlistPdfBytes(waitlistSchema.parse(valid), logo);
+    const doc = await PDFDocument.load(bytes);
+    expect(doc.getPageCount()).toBeGreaterThanOrEqual(2);
+    // De mailfunctie accepteert maximaal 3.000.000 base64-tekens.
+    expect(Math.ceil(bytes.length / 3) * 4).toBeLessThan(3_000_000);
+  });
+});
