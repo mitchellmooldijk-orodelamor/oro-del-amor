@@ -1,22 +1,15 @@
-import { useServerFn } from "@tanstack/react-start";
-import { Loader2, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { CARE_DISCLAIMER, ageChoices, focusOptions, getAgeStage, type FocusId } from "@/data/care";
-import { generateCareRoutine } from "@/lib/care-routine.functions";
-import type { CareRoutineResult } from "@/lib/care-routine.server";
+import { buildCareRoutine, type CareRoutineResult } from "@/lib/care-routine";
 import { cn } from "@/lib/utils";
 
-type Routine = Extract<CareRoutineResult, { ok: true }>;
-
 export function CareRoutineHelper() {
-  const runRoutine = useServerFn(generateCareRoutine);
   const [ageMonths, setAgeMonths] = useState(3);
   const [dogName, setDogName] = useState("");
   const [focus, setFocus] = useState<FocusId[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [result, setResult] = useState<Routine | null>(null);
+  const [result, setResult] = useState<CareRoutineResult | null>(null);
 
   const stage = getAgeStage(ageMonths);
 
@@ -24,25 +17,12 @@ export function CareRoutineHelper() {
     setFocus((v) => (v.includes(id) ? v.filter((f) => f !== id) : [...v, id]));
   }
 
-  async function onSubmit(e: FormEvent) {
+  function onSubmit(e: FormEvent) {
     e.preventDefault();
-    setLoading(true);
-    setError(null);
-    try {
-      const res = await runRoutine({ data: { ageMonths, dogName: dogName.trim() || undefined, focus } });
-      if (res.ok) {
-        setResult(res);
-        requestAnimationFrame(() =>
-          document.getElementById("jouw-routine")?.scrollIntoView({ behavior: "smooth", block: "start" }),
-        );
-      } else {
-        setError(res.error);
-      }
-    } catch {
-      setError("Er ging iets mis bij het maken van de routine. Probeer het later opnieuw.");
-    } finally {
-      setLoading(false);
-    }
+    setResult(buildCareRoutine({ ageMonths, dogName, focus }));
+    requestAnimationFrame(() =>
+      document.getElementById("jouw-routine")?.scrollIntoView({ behavior: "smooth", block: "start" }),
+    );
   }
 
   return (
@@ -111,15 +91,10 @@ export function CareRoutineHelper() {
         </fieldset>
 
         <div className="mt-10 flex flex-col items-center gap-4">
-          <Button type="submit" variant="gold" size="xl" disabled={loading}>
-            {loading ? <Loader2 className="animate-spin" /> : <Sparkles />}
-            {loading ? "Routine wordt gemaakt…" : "Maak mijn dagroutine"}
+          <Button type="submit" variant="gold" size="xl">
+            <Sparkles />
+            Maak mijn dagroutine
           </Button>
-          {error && (
-            <p role="alert" className="text-center font-serif text-lg text-destructive">
-              {error}
-            </p>
-          )}
         </div>
       </form>
 

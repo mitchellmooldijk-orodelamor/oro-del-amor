@@ -39,3 +39,4 @@ use the editor.
 - Waitlist questionnaire: fields and validation in `src/data/waitlist.ts` (shared by form and server); submissions are inserted server-side into `public.waitlist_applications` (RLS on, no visitor policies). Why: answers stay private and are never readable from the browser.
 - Contact form opens the visitor's mail app (mailto to CONTACT_EMAIL); nothing is stored. Why: owner wants messages in their inbox and app email sending is not set up.
 - The waitlist PDF embeds the lightweight `src/assets/oro-del-amor-logo-pdf.jpg`, never the full-size PNG logo. Why: the PNG pushes the PDF past the mail function's size limit.
+- The care routine helper on `/het-ras` is composed in the browser by `src/lib/care-routine.ts` from fixed kennel advice; no AI or server call. Why: the live site is static on Netlify and must work without AI credits.
