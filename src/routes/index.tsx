@@ -196,7 +196,7 @@ function Index() {
             Benieuwd naar een toekomstig nestje? Zet je op onze wachtlijst en wij houden je persoonlijk op de
             hoogte.
           </p>
-          <Button asChild variant="gold" size="xl" className="mt-10">
+          <Button asChild variant="gold" size="xl" className="mt-10 px-5 tracking-[0.12em] sm:px-7 sm:tracking-[0.25em]">
             <Link to="/wachtlijst">Aanmelden voor de wachtlijst</Link>
           </Button>
         </div>

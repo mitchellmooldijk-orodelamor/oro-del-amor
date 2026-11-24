@@ -53,7 +53,7 @@ function Pups() {
         intro="Momenteel zijn er geen pups beschikbaar. Schrijf je in voor de wachtlijst en wees als eerste op de hoogte van een nieuw nestje."
       />
       <div className="flex justify-center border-b border-border px-5 py-10">
-        <Button asChild variant="gold" size="xl">
+        <Button asChild variant="gold" size="xl" className="px-5 tracking-[0.12em] sm:px-7 sm:tracking-[0.25em]">
           <a href="#aanmelding">Aanmelden voor de wachtlijst</a>
         </Button>
       </div>
