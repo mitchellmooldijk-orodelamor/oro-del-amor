@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { waitlistSchema } from "@/data/waitlist";
 
 const valid = {
@@ -87,5 +87,48 @@ describe("wachtlijst-pdf opmaak", () => {
     expect(doc.getPageCount()).toBeGreaterThanOrEqual(2);
     // De mailfunctie accepteert maximaal 3.000.000 base64-tekens.
     expect(Math.ceil(bytes.length / 3) * 4).toBeLessThan(3_000_000);
+  });
+});
+
+describe("wachtlijst-mail", () => {
+  const post = (body: unknown) =>
+    new Request("https://orodelamorpoms.nl/.netlify/functions/waitlist-mail", { method: "POST", body: JSON.stringify(body) });
+  const payload = {
+    name: "Test Persoon",
+    email: "test@example.com",
+    filename: "aanmelding-wachtlijst-oro-del-amor-test-persoon.pdf",
+    pdf: btoa("%PDF-1.7 test"),
+    text: "Naam: Test Persoon",
+  };
+
+  it("mails the PDF to the kennel and a confirmation with the same PDF to the applicant", async () => {
+    vi.resetModules();
+    const sendMail = vi.fn(async (_mail: { to: string; replyTo: string; text: string; attachments: { content: string }[] }) => ({}));
+    vi.doMock("nodemailer", () => ({ default: { createTransport: () => ({ sendMail }) } }));
+    vi.stubEnv("SMTP_HOST", "smtp.example.com");
+    vi.stubEnv("SMTP_USER", "info@orodelamorpoms.nl");
+    vi.stubEnv("SMTP_PASS", "x");
+    // @ts-expect-error Netlify-functie is gewoon JavaScript
+    const { default: handler } = await import("../../netlify/functions/waitlist-mail.mjs");
+
+    const res: Response = await handler(post(payload));
+    expect(await res.json()).toEqual({ ok: true, confirmation: true });
+    expect(sendMail).toHaveBeenCalledTimes(2);
+    const kennel = sendMail.mock.calls[0]?.[0];
+    const applicant = sendMail.mock.calls[1]?.[0];
+    expect(kennel?.to).toBe("info@orodelamorpoms.nl");
+    expect(applicant?.to).toBe("test@example.com");
+    expect(applicant?.replyTo).toBe("info@orodelamorpoms.nl");
+    expect(applicant?.attachments[0]?.content).toBe(payload.pdf);
+    expect(applicant?.text).toContain("Mitchell & Jill");
+    expect(applicant?.text).toContain("(06) 16 19 11 98");
+
+    // Geen PDF of meerdere ontvangers: er gaat niets de deur uit.
+    sendMail.mockClear();
+    expect((await handler(post({ ...payload, pdf: btoa("<html>spam</html>") }))).status).toBe(400);
+    expect((await handler(post({ ...payload, email: "a@example.com,b@example.com" }))).status).toBe(400);
+    expect(sendMail).not.toHaveBeenCalled();
+    vi.unstubAllEnvs();
+    vi.doUnmock("nodemailer");
   });
 });

@@ -19,4 +19,5 @@
 - [x] Nieuw logo overal, Pomeranians gecentreerd, WhatsApp-glans
 - [x] Contactformulier opent weer de mail-app (op verzoek)
 - [x] Wachtlijst-PDF: voorblad met groot logo en introductie, vragen vanaf pagina 2, dankblok met groet en telefoonnummer
+- [x] Wachtlijst: aanmelder krijgt automatisch een bevestigingsmail met de PDF (via Strato, alleen op orodelamorpoms.nl)
 - [ ] Wacht op klant: berichten rechtstreeks naar info@orodelamorpoms.nl (betaald abonnement + domein koppelen nodig)

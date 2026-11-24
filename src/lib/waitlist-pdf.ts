@@ -205,7 +205,10 @@ export async function mailWaitlistPdf(blob: Blob, filename: string, data: Waitli
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ name: data.fullName, email: data.email, filename, pdf: btoa(bin), text }),
     });
-    return res.ok;
+    if (!res.ok) return false;
+    // true = de aanmelder heeft ook een bevestiging met de PDF gekregen.
+    const out = (await res.json().catch(() => null)) as { confirmation?: boolean } | null;
+    return out?.confirmation === true;
   } catch {
     return false;
   }

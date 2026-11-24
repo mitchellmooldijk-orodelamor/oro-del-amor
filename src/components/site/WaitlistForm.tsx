@@ -76,6 +76,7 @@ export function WaitlistForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [pdf, setPdf] = useState<{ blob: Blob; name: string } | null>(null);
+  const [confirmed, setConfirmed] = useState(false);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -128,7 +129,7 @@ export function WaitlistForm() {
       const blob = await buildWaitlistPdf(parsed.data);
       const name = waitlistPdfFilename(parsed.data);
       setPdf({ blob, name });
-      void mailWaitlistPdf(blob, name, parsed.data);
+      void mailWaitlistPdf(blob, name, parsed.data).then(setConfirmed);
       try {
         downloadBlob(blob, name);
       } catch {
@@ -151,6 +152,7 @@ export function WaitlistForm() {
         <p className="mx-auto mt-6 max-w-xl font-serif text-xl leading-relaxed text-muted-foreground">
           Je aanmelding is binnengekomen bij Mitchell en Jill. Zij lezen hem persoonlijk door en nemen contact met je op. Je
           antwoorden staan ook in een PDF die je kunt bewaren.
+          {confirmed && " We hebben je ook een bevestiging met deze PDF gemaild; kijk eventueel in je spammap."}
         </p>
         <div className="mt-8 flex flex-col items-center gap-4">
           {pdf.name && (
